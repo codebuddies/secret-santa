@@ -1,0 +1,14 @@
+{
+  "private": {
+    "email": {
+      "emailProvider": {
+        "apiKey" :"api _key",
+        "SMTP": "smtp"
+      }
+    },
+    "kadira": {
+      "appId": "appId",
+      "appSecret": "appSecret"
+     }
+  }
+}

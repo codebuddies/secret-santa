@@ -1,0 +1,15 @@
+{
+  "name": "mint-cream",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package dispatch:mocha-phantomjs --port 3030",
+    "test-watch": "meteor test --driver-package=practicalmeteor:mocha --port 3030"
+  },
+  "dependencies": {
+    "bcrypt": "0.8.7",
+    "lodash": "^4.13.1",
+    "meteor-node-stubs": "~0.2.0",
+    "moment": "^2.14.1"
+  }
+}
