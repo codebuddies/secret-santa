@@ -22,3 +22,10 @@ FlowRouter.route('/', {
     BlazeLayout.render('layout', { main: 'landing' });
   },
 });
+
+FlowRouter.route('/fl/manage-user', {
+  name: 'manage user',
+  action() {
+    BlazeLayout.render('layout', { main: 'isModerator', targetTemplate: 'manageUser' });
+  },
+});
