@@ -29,3 +29,10 @@ FlowRouter.route('/fl/manage-user', {
     BlazeLayout.render('layout', { main: 'isModerator', targetTemplate: 'manageUser' });
   },
 });
+
+FlowRouter.route('/fl/users/:role', {
+  name: 'user by role',
+  action() {
+    BlazeLayout.render('layout', { main: 'isModerator', targetTemplate: 'usersByRole' });
+  },
+});
