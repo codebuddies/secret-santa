@@ -7,7 +7,6 @@ Template.manageUser.onCreated(function(){
 
 Template.manageUser.helpers({
   searchResults: function() {
-    console.log(Meteor.users.search(Session.get('userSearchQuery')).count());
     return Meteor.users.search(Session.get('userSearchQuery'));
   },
 });

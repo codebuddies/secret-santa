@@ -4,3 +4,6 @@ import './navbar';
 import './landing';
 import './users';
 import './authorization';
+import './logs';
+import './loading';
+import './dashboard';

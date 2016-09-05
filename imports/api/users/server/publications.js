@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor';
+
 Meteor.publish("allUsers", function () {
 
   if (Roles.userIsInRole(this.userId, ["admin","moderator"])) {

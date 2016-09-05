@@ -24,14 +24,14 @@
       {{#if searchResults.count}}
         {{#each searchResults}}
 
-          <a href="{{pathFor 'user by id'}}/{{_id}}">
+          <a href="{{pathFor 'single user' userId=_id}}">
             <div class="panel panel-default">
               <div class="panel-body">
 
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <img src="/default-avatar.png" alt="avatar" />
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-9">
                   Username : {{username}} <br>
 
                 </div>
