@@ -1,0 +1,41 @@
+<template name="profile">
+  <div class="panel panel-default">
+      <div class="panel-body">
+        {{#unless currentUser}}
+          <h5>Please login to see this information</h5>
+        {{else}}
+        {{#if Template.subscriptionsReady}}
+
+          {{#with userInfo}}
+
+            <div class="row">
+              <div class="col-md-2">
+              <img src="{{#if profile.avatar}} {{profile.avatar}} {{else}}/default-avatar.png{{/if}}" alt="" height="100" width="100" />
+              </div>
+              <div class="col-md-10">
+                <h5>Name : {{username}}</h5>
+                <h6>
+                  {{#if equals _id currentUser._id}}
+                  <div class="btn btn-default" id="changeProfilePicture">
+                    Change Profile Picture
+                  </div>
+                  {{/if}}
+                </h6>
+              </div>
+            </div>
+
+
+
+            <br>
+            <br>
+
+          {{/with}}
+          {{/if}}
+        {{/unless}}
+
+
+
+      </div>
+    </div>
+
+</template>

@@ -8,3 +8,12 @@ Meteor.publish("allUsers", function () {
   this.ready();
 
 });
+
+Meteor.publish( 'userInformationById', function(userId) {
+  if (!userId) {
+    return this.ready();
+  }
+
+  return Meteor.users.find({'_id':userId});
+
+});

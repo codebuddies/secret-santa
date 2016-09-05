@@ -7,3 +7,4 @@ import './authorization';
 import './logs';
 import './loading';
 import './dashboard';
+import './profile';

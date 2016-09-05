@@ -23,6 +23,13 @@ FlowRouter.route('/', {
   },
 });
 
+FlowRouter.route('/user/:userId', {
+  name: 'user profile',
+  action() {
+    BlazeLayout.render('layout', { main: 'profile' });
+  },
+});
+
 FlowRouter.route('/fl/manage-user', {
   name: 'manage user',
   action() {
