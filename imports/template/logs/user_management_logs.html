@@ -1,0 +1,35 @@
+<template name="userManagementLogs">
+<div class="container">
+  <div id="notification">
+
+
+
+  <div class="page-header">
+    <h3>User Managemnet Activities</h3>
+  </div>
+
+  {{#if Template.subscriptionsReady}}
+    <div id="flux">
+
+
+    {{#if notifications.count}}
+      {{#each notifications}}
+        {{#if equals type 'role update'}}
+          <p class="alert {{#if hasBeenSeen}}  {{else}} markAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actorId}} {{actorUsername}} {{else}} <a href="{{pathFor 'single user' userId=actorId}}"> {{actorUsername}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'single user' userId=subjectId}}"> {{subjectUsername}} </a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
+        {{/if}}
+      {{/each}}
+
+    {{else}}
+      <h4>There are no notifications.</h4>
+    {{/if}}<!--notifications.count-->
+  </div>
+  {{else}}
+    {{> loading}}
+  {{/if}}<!--Template.subscriptionsReady-->
+
+
+  </div>
+
+
+</div>
+</template>

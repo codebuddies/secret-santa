@@ -1,0 +1,46 @@
+<template name="usersByRole">
+  <div class="container">
+  <div class="page-header">
+    <h3>{{currentRole}}</h3>
+  </div>
+
+
+    <p> <a href="{{pathFor 'manage user'}}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a> </p>
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="{{pathFor 'user by role'}}/moderator">Moderator</a></li>
+      <li role="presentation"><a href="{{pathFor 'user by role'}}/volunteer">Volunteer</a></li>
+      <li role="presentation"><a href="{{pathFor 'user by role'}}/inactive">Inactive</a></li>
+    </ul>
+
+  <br>
+  <br>
+  <br>
+
+  <div class="row">
+    {{#if users.count}}
+      {{#each users}}
+
+        <a href="{{pathFor 'user by id'}}/{{_id}}">
+          <div class="panel panel-default">
+            <div class="panel-body">
+
+              <div class="col-md-3">
+                <img src="/default-avatar.png" alt="avtar" />
+              </div>
+              <div class="col-md-9">
+                Username : {{username}} <br>
+              </div>
+
+            </div><!-- panel-body -->
+          </div><!-- panel panel-default -->
+        </a>
+
+      {{/each}}
+    {{else}}
+      <h4>There are no {{currentRole}} user.</h4>
+    {{/if}}
+
+  </div>
+
+  </div>
+</template>

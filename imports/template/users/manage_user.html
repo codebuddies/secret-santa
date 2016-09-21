@@ -1,0 +1,54 @@
+<template name="manageUser">
+  <div class="container">
+
+
+  <div class="page-header">
+    <h4>Manage Users</h4>
+  </div>
+  <p> <a href="{{pathFor 'dashboard'}}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a> </p>
+  <ul class="nav nav-tabs">
+    <li role="presentation"><a href="{{pathFor 'user by role'}}/moderator">Moderators</a></li>
+    <li role="presentation"><a href="{{pathFor 'user by role'}}/volunteer">Volunteers</a></li>
+    <li role="presentation"><a href="{{pathFor 'user by role'}}/inactive">Inactive</a></li>
+    <form class="navbar-form navbar-right" role="search">
+       <div class="form-group">
+         <input type="text" class="form-control searchTerm" name="searchTerm" placeholder="&#128269; Search" id="searchBox">
+       </div>
+     </form>
+  </ul>
+  <div class="col-md-12">
+    {{#if searchMode}}
+      <div class="page-header">
+        <h5>Showing results for '{{userSearchQuery}}'</h5>
+      </div>
+      {{#if searchResults.count}}
+        {{#each searchResults}}
+
+          <a href="{{pathFor 'single user' userId=_id}}">
+            <div class="panel panel-default">
+              <div class="panel-body">
+
+                <div class="col-md-3">
+                  <img src="/default-avatar.png" alt="avatar" />
+                </div>
+                <div class="col-md-9">
+                  Username : {{username}} <br>
+
+                </div>
+
+              </div><!-- panel-body -->
+            </div><!-- panel panel-default -->
+          </a>
+
+        {{/each}}
+      {{else}}
+        <h4>Sorry, no results were found.</h4>
+        <p>Please check your spelling, or try another search.</p>
+      {{/if}}<!--searchResults.count-->
+    {{/if}}<!--searchMode-->
+  </div>
+
+
+
+  </div>
+</template>
