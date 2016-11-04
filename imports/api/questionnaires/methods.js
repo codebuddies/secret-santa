@@ -22,7 +22,7 @@ Meteor.methods({
       categories: data.categories,
       introduction: data.introduction,
       preference: data.preference,
-      preference:data.shippingAddress,
+      shipping_address: data.shippingAddress,
       user:{
          id: user._id,
          name: user.profile.username,
