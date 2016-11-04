@@ -1,15 +1,24 @@
 {
-  "name": "secret santa",
+  "name": "secret-santa",
   "private": true,
   "scripts": {
     "start": "meteor run",
     "test": "meteor test --once --driver-package dispatch:mocha-phantomjs --port 3030",
-    "test-watch": "meteor test --driver-package=practicalmeteor:mocha --port 3030"
+    "test-watch": "meteor test --driver-package=practicalmeteor:mocha --port 3030",
+    "commit": "git-cz"
   },
   "dependencies": {
     "bcrypt": "0.8.7",
     "lodash": "^4.13.1",
     "meteor-node-stubs": "~0.2.0",
     "moment": "2.14.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "1.2.0"
   }
 }
