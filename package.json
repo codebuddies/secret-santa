@@ -1,5 +1,5 @@
 {
-  "name": "mint-cream",
+  "name": "secret santa",
   "private": true,
   "scripts": {
     "start": "meteor run",
