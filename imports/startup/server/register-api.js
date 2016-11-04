@@ -7,3 +7,7 @@ import '../../api/users/methods.js';
 import '../../api/logs/server/publications.js';
 import '../../api/logs/user_management_logs.js';
 import '../../api/logs/methods.js';
+
+//questionnaire
+import '../../api/questionnaires/server/publications.js';
+import '../../api/questionnaires/methods.js';

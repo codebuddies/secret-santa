@@ -9,3 +9,6 @@ import './loading';
 import './dashboard';
 import './profile';
 import './staticInfo';
+import './questionnaire';
+import './mics';
+import './footer';

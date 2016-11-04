@@ -1,4 +1,4 @@
-<template name="navbar">
+<template name="sysNavbar">
   <div class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -16,8 +16,8 @@
 
         <ul class="nav navbar-nav navbar-right">
           {{#unless currentUser}}
-            <!-- {{> loginButtons}} -->
-            <li><button class="btn btn-primary signIn"><img src="/images/slack-icon.png">&nbsp;&nbsp; Sign In</button></li>
+            {{> loginButtons}}
+            <!-- <li><button class="btn btn-primary signIn"><img src="/images/slack-icon.png">&nbsp;&nbsp; Sign In</button></li> -->
           {{/unless}}
 
           {{#if currentUser}}
@@ -28,9 +28,9 @@
 
               <ul class="dropdown-menu">
                 <li><a href="{{pathFor 'user profile' userId=currentUser._id}}">Profile</a></li>
+                <li role="separator" class="divider"></li>
 
                 {{#if isInRole 'admin, moderator'}}
-                  <li role="separator" class="divider"></li>
                   <li><a href="{{pathFor 'dashboard'}}">Dashboard <span class="badge"></span> </a></li>
                   <li><a href="{{pathFor 'manage user'}}">Manage User <span class="badge"></span> </a></li>
                 {{/if}}

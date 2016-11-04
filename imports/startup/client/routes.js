@@ -40,6 +40,14 @@ var sys = FlowRouter.group({
   prefix: '/admin',
 });
 
+sys.route('/', {
+  name: 'admin login',
+  action() {
+    BlazeLayout.render('sysLayout', { main: 'landing' });
+  },
+});
+
+
 sys.route('/manage-user', {
   name: 'manage user',
   action() {

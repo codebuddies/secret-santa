@@ -1,5 +1,11 @@
 <template name="landing">
   {{#if currentUser}}
+    {{#unless currentUser.questionnaire}}
+      {{> questionnaire}}
+    {{else}}
+      {{> thanksForParticipating}}
+    {{/unless}}
+
   {{else}}
     {{> introduction}}
     {{> howDoesItWorks}}
