@@ -8,6 +8,12 @@ import './navbar.html';
 
 
 Template.navbar.events({
+  'click .signIn': function(event) {
+    var options = {
+      requestPermissions: ['identify', 'users:read']
+    };
+    Meteor.loginWithSlack(options);
+  },
   "click #logout": function(event, template){
     event.preventDefault();
     Meteor.logout();

@@ -9,6 +9,10 @@
     "kadira": {
       "appId": "appId",
       "appSecret": "appSecret"
-     }
+    },
+    "slack": {
+      "clientId": "client_id",
+      "clientSecret": "client_secret"
+    }
   }
 }
