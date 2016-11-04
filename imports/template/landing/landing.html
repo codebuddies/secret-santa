@@ -1,3 +1,8 @@
 <template name="landing">
-  
+  {{#if currentUser}}
+  {{else}}
+    {{> introduction}}
+    {{> howDoesItWorks}}
+    {{> registerForSecretSanta}}
+  {{/if}}
 </template>

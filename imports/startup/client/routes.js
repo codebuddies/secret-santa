@@ -15,7 +15,7 @@ FlowRouter.notFound = {
 };
 
 
-
+//visitor routes
 FlowRouter.route('/', {
   name: 'landing',
   action() {
@@ -23,6 +23,8 @@ FlowRouter.route('/', {
   },
 });
 
+
+//user routes
 FlowRouter.route('/user/:userId', {
   name: 'user profile',
   action() {
@@ -31,6 +33,9 @@ FlowRouter.route('/user/:userId', {
 });
 
 
+
+
+//admin routes
 var sys = FlowRouter.group({
   prefix: '/admin',
 });
