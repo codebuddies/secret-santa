@@ -37,3 +37,4 @@ simple:reactive-method
 acemtp:accounts-slack
 http
 check
+meteorhacks:aggregate

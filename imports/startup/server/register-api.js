@@ -11,3 +11,6 @@ import '../../api/logs/methods.js';
 //questionnaire
 import '../../api/questionnaires/server/publications.js';
 import '../../api/questionnaires/methods.js';
+
+//systemStats
+import '../../api/systemStats/methods.js';
