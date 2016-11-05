@@ -32,6 +32,14 @@ FlowRouter.route('/user/:userId', {
   },
 });
 
+//user routes
+FlowRouter.route('/my-gift', {
+  name: 'my gift',
+  action() {
+    BlazeLayout.render('layout', { main: 'MyGift' });
+  },
+});
+
 
 
 

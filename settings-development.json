@@ -1,5 +1,6 @@
 {
   "private": {
+    "production": false,
     "email": {
       "emailProvider": {
         "apiKey" :"api _key",

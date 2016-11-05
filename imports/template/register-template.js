@@ -12,3 +12,4 @@ import './staticInfo';
 import './questionnaire';
 import './mics';
 import './footer';
+import './gift';

@@ -16,7 +16,10 @@ Template.assignedQuestionnaire.helpers({
 });
 
 Template.assignedQuestionnaire.events({
-  "click #foo": function(event, template){
+  "click #reportUser": function(event, template){
 
+  },
+  "click #giftConfirmation": function(event, template){
+    console.log(this);
   }
 });
