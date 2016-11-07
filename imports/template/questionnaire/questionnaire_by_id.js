@@ -17,10 +17,10 @@ Template.questionnaireById.helpers({
 });
 
 Template.questionnaireById.events({
-  "click #reportUser": function(event, template){
-    Modal.show('reportUserModal', this);
+  "click #blockUser": function(event, template){
+    Modal.show('blockUserModal', this);
   },
-  "click #giftConfirmation": function(event, template){
-    console.log(this);
+  "click #falseReport": function(event, template){
+    Modal.show('falseReport', this);
   }
 });

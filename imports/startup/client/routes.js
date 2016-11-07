@@ -36,7 +36,7 @@ FlowRouter.route('/user/:userId', {
 FlowRouter.route('/my-gift', {
   name: 'my gift',
   action() {
-    BlazeLayout.render('layout', { main: 'MyGift' });
+    BlazeLayout.render('layout', { main: 'myGift' });
   },
 });
 

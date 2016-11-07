@@ -47,3 +47,59 @@ Meteor.methods({
 
   }
 });
+
+Meteor.methods({
+  giftSent:function(data){
+    check(data, {
+      giftDetail: String,
+      senderId: String,
+      receiverId: String,
+      questionnaireId: String
+    });
+
+    if (!this.userId) {
+     throw new Meteor.Error('Questionnaires.methods.giftSent.not-logged-in', 'Must be logged in to add your gift details.');
+    }
+
+    const user = Meteor.user();
+    const questionnaire = Questionnaires.findOne({_id:data.questionnaireId});
+
+    if(data.senderId !== user._id){
+      throw new Meteor.Error(500, "You are trying do something fishy.")
+    }
+
+    Questionnaires.update({_id:data.questionnaireId}, {$set:{
+      sent:true,
+      giftDetail: data.giftDetail
+    }});
+
+    return true;
+  }
+});
+
+Meteor.methods({
+  giftReceived:function(data){
+    check(data, {
+      giftDetail: String,
+      receiverId: String,
+    });
+
+    if (!this.userId) {
+     throw new Meteor.Error('Questionnaires.methods.giftReceived.not-logged-in', 'Must be logged in to Receive your gift.');
+    }
+
+    const user = Meteor.user();
+
+    if(data.receiverId !== user._id){
+      throw new Meteor.Error(500, "You are trying do something fishy.")
+    }
+
+    Questionnaires.update({'user.id':data.receiverId}, {$set:{
+      received:true,
+      giftDetail_2: data.giftDetail
+    }});
+
+    return true;
+
+  }
+});

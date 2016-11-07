@@ -1,3 +1,18 @@
-<template name="MyGift">
-  {{> giftYetToBeArrived}}
+<template name="myGift">
+  {{#if Template.subscriptionsReady}}
+    {{#with questionnaire}}
+      {{#unless questionnaire.secret_buddy}}
+        {{> giftYetToBeArrived}}
+      {{else}}
+
+        {{#if questionnaire.sent}}
+          {{> giftArrived received=questionnaire.received}}
+        {{else}}
+          {{> santasOnHisWay}}
+        {{/if}}
+
+      {{/unless}}
+    {{/with}}
+  {{/if}}
+
 </template>

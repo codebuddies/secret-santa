@@ -1,0 +1,10 @@
+<template name="landingForCurrentUser">
+  {{#unless currentUser.questionnaire}}
+    {{#unless isInRole 'admin, moderator'}}
+      {{> questionnaire}}
+    {{/unless}}  
+  {{else}}
+
+    {{> assignedUser}}
+  {{/unless}}
+</template>

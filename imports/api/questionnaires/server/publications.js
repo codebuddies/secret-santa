@@ -13,6 +13,12 @@ Meteor.publish("MyAssignedQuestionnaire", function(){
 
 });
 
+Meteor.publish("MyQuestionnaire", function(){
+
+  return Questionnaires.find({'user.id': this.userId});
+
+});
+
 Meteor.publish("questionnaireById", function(questionnaireId){
   return Questionnaires.find({'_id': questionnaireId});
 });

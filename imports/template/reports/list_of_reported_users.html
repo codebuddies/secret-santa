@@ -10,7 +10,7 @@
       {{#if reports.count}}
         {{#each reports}}
           {{#if equals type 'reported user'}}
-            <p class="alert {{#if hasBeenSeen}}  {{else}} reportMarkAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actorId}} {{actorUsername}} {{else}} <a href="{{pathFor 'single user' userId=actorId}}"> {{actorUsername}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'single user' userId=subjectId}}"> {{subjectUsername}} </a> 's  <a href="{{pathFor 'questionnaire by id' questionnaireId=questionnaireId}}">Questionnaire</a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
+            <p class="alert {{#if hasBeenSeen}}  {{else}} reportMarkAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actorId}} {{actorUsername}} {{else}} <a href="{{pathFor 'single user' userId=actorId}}"> {{actorUsername}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'single user' userId=subjectId}}"> {{subjectUsername}} </a> 's  <a href="{{pathFor 'questionnaire by id' questionnaireId=questionnaireId}}">Details</a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
           {{/if}}
         {{/each}}
 
