@@ -3,20 +3,20 @@ import { Template } from 'meteor/templating'
 import { Modal } from 'meteor/peppelg:bootstrap-3-modal';
 import { Questionnaires } from '../../api/questionnaires/questionnaires.js';
 
-import './assigned_questionnaire.html';
+import './questionnaire_by_id.html';
 
-Template.assignedQuestionnaire.onCreated(function() {
-  this.subscribe("MyAssignedQuestionnaire");
+Template.questionnaireById.onCreated(function() {
+  this.subscribe("questionnaireById", FlowRouter.getParam('questionnaireId'));
 });
 
 
-Template.assignedQuestionnaire.helpers({
+Template.questionnaireById.helpers({
   questionnaire: function(){
-    return Questionnaires.findOne({'secret_buddy.id': Meteor.userId() });
+    return Questionnaires.findOne({'_id': FlowRouter.getParam('questionnaireId') });
   }
 });
 
-Template.assignedQuestionnaire.events({
+Template.questionnaireById.events({
   "click #reportUser": function(event, template){
     Modal.show('reportUserModal', this);
   },

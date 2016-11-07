@@ -13,3 +13,4 @@ import './questionnaire';
 import './mics';
 import './footer';
 import './gift';
+import './reports';

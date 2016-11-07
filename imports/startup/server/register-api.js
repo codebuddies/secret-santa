@@ -14,3 +14,7 @@ import '../../api/questionnaires/methods.js';
 
 //systemStats
 import '../../api/systemStats/methods.js';
+
+//reports
+import '../../api/reports/server/publications.js';
+import '../../api/reports/methods.js';

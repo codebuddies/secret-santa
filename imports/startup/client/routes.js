@@ -89,3 +89,17 @@ sys.route('/activities/user-management', {
     BlazeLayout.render('layout', { main: 'isModerator', targetTemplate: 'userManagementLogs' });
   },
 });
+
+sys.route('/activities/reports', {
+  name: 'reports',
+  action() {
+    BlazeLayout.render('layout', { main: 'isModerator', targetTemplate: 'listOfReportedUsers' });
+  },
+});
+
+sys.route('/questionnaire/:questionnaireId', {
+  name: 'questionnaire by id',
+  action() {
+    BlazeLayout.render('layout', { main: 'isModerator', targetTemplate: 'questionnaireById' });
+  },
+});

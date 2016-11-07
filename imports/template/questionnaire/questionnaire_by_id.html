@@ -1,4 +1,4 @@
-<template name="assignedQuestionnaire">
+<template name="questionnaireById">
   {{#if Template.subscriptionsReady}}
     {{#with questionnaire}}
       <div class="panel panel-default">
@@ -37,29 +37,15 @@
         </div>
       </div>
 
-      {{#unless questionnaire.reported}}
-      <div class="row">
-        <div class="col-md-12">
-          <div class="btn btn-block btn-default" id="reportUser">
-            Report User
-          </div>
-        </div>
-      </div>
-      {{/unless}}
-      <br>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="btn btn-block btn-default" id="giftConfirmation">
-            I have sent the Gift.
-          </div> 
+      <div class="col-md-12">
+        <div class="btn btn-block btn-default" id="blockUser">
+          Block This User
         </div>
       </div>
 
 
-
-    {{else}}
-      {{> thanksForParticipating}}
     {{/with}}
   {{/if}}
+
 
 </template>

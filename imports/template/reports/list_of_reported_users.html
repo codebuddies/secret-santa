@@ -1,0 +1,26 @@
+<template name="listOfReportedUsers">
+  <div class="page-heder well">
+    <h3>Reports</h3>
+  </div>
+  <div class="container">
+    {{#if Template.subscriptionsReady}}
+      <div id="flux" class="well">
+
+
+      {{#if reports.count}}
+        {{#each reports}}
+          {{#if equals type 'reported user'}}
+            <p class="alert {{#if hasBeenSeen}}  {{else}} reportMarkAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actorId}} {{actorUsername}} {{else}} <a href="{{pathFor 'single user' userId=actorId}}"> {{actorUsername}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'single user' userId=subjectId}}"> {{subjectUsername}} </a> 's  <a href="{{pathFor 'questionnaire by id' questionnaireId=questionnaireId}}">Questionnaire</a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
+          {{/if}}
+        {{/each}}
+
+      {{else}}
+        <h4>There are no reports.</h4>
+      {{/if}}<!--reports.count-->
+    </div>
+    {{else}}
+      {{> loading}}
+    {{/if}}<!--Template.subscriptionsReady-->
+
+  </div>
+</template>
