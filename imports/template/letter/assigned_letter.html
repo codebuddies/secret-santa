@@ -1,7 +1,7 @@
 <template name="assignedLetter">
   {{#if Template.subscriptionsReady}}
     {{#with letter}}
-      {{#unless questionnaire.sent}}
+      {{#unless letter.sent}}
 
         <div class="panel panel-default">
           <div class="panel-heading">

@@ -14,7 +14,7 @@ Template.sentGiftModal.events({
       giftDetail: giftDetail,
       senderId: Meteor.userId(),
       receiverId: this.user.id,
-      questionnaireId: this._id
+      letterId: this._id
     }
 
    Meteor.call("giftSent", data, function(error, result){
