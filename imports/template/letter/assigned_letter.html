@@ -1,69 +1,77 @@
 <template name="assignedLetter">
   {{#if Template.subscriptionsReady}}
     {{#with letter}}
-      {{#unless letter.sent}}
+      {{#if letter.recieved}}
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2 class="panel-title">Your assigned letter</h2>
-          </div>
-          <div class="panel-body">
-            <div class="col-md-4">
-              <h3>Firstname : <small> {{letter.user.firstname}}</small></h3>
-            </div>
-            <div class="col-md-4">
-              <h3>Lastname : <small> {{letter.user.lastname}}</small></h3>
-            </div>
-            <div class="col-md-4">
-              <h3>Preference : <small> {{letter.preference}} </small> </h3>
-            </div>
-            <hr>
-            <div class="col-md-6">
-              <div class="page-header">
-                <h3>Introduction</h3>
-              </div>
-              <h4>
-                {{letter.introduction}}
-              </h4>
-
-            </div>
-            <div class="col-md-6">
-              <div class="page-header">
-                <h3>Area of interest</h3>
-              </div>
-              <h4>
-                {{letter.categories}}
-              </h4>
-
-            </div>
-          </div>
-        </div>
-
-      {{#unless letter.reported}}
-      <div class="row">
-        <div class="col-md-12">
-          <div class="btn btn-block btn-default" id="reportUser">
-            Report User
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="btn btn-block btn-default" id="giftConfirmation">
-            I have sent the Gift.
-          </div>
-        </div>
-      </div>
-      {{else}}
-      {{> thanksForReporting}}
-      {{/unless}}
-
-
+        {{> giftRecieved letter=this}}
 
       {{else}}
-        {{> thanksForParticipating}}
-      {{/unless}}
+          {{#unless letter.sent}}
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h2 class="panel-title">Your assigned letter</h2>
+              </div>
+              <div class="panel-body">
+                <div class="col-md-4">
+                  <h3>Firstname : <small> {{letter.user.firstname}}</small></h3>
+                </div>
+                <div class="col-md-4">
+                  <h3>Lastname : <small> {{letter.user.lastname}}</small></h3>
+                </div>
+                <div class="col-md-4">
+                  <h3>Preference : <small> {{letter.preference}} </small> </h3>
+                </div>
+                <hr>
+                <div class="col-md-6">
+                  <div class="page-header">
+                    <h3>Introduction</h3>
+                  </div>
+                  <h4>
+                    {{letter.introduction}}
+                  </h4>
+
+                </div>
+                <div class="col-md-6">
+                  <div class="page-header">
+                    <h3>Area of interest</h3>
+                  </div>
+                  <h4>
+                    {{letter.categories}}
+                  </h4>
+
+                </div>
+              </div>
+            </div>
+
+            {{#unless letter.reported}}
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="btn btn-block btn-default" id="reportUser">
+                    Report User
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="btn btn-block btn-default" id="giftConfirmation">
+                    I have sent the Gift.
+                  </div>
+                </div>
+              </div>
+            {{else}}
+              {{> thanksForReporting}}
+            {{/unless}} <!-- letter.reported -->
+
+
+
+          {{else}}
+            {{> thanksForParticipating}}
+          {{/unless}}<!--letter.sent -->
+
+      {{/if}}
+
     {{else}}
       {{> thanksForRegistering}}
     {{/with}}
