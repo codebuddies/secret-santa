@@ -1,7 +1,7 @@
 import './list_of_reported_users.html';
 import { Reports } from '../../api/reports/reports.js';
 
-Template.listOfReportedUsers.onCreated(function() {
+Template.listOfReportedLetters.onCreated(function() {
     var instance = this;
     instance.flag = new ReactiveVar(false);
     instance.limit = new ReactiveVar(10);
@@ -15,7 +15,7 @@ Template.listOfReportedUsers.onCreated(function() {
     }
 });
 
-Template.listOfReportedUsers.onRendered(function(){
+Template.listOfReportedLetters.onRendered(function(){
     var instance = this;
 
        $('#flux').bind('scroll', function(){
@@ -35,7 +35,7 @@ Template.listOfReportedUsers.onRendered(function(){
 });
 
 
-Template.listOfReportedUsers.helpers({
+Template.listOfReportedLetters.helpers({
   reports:function(){
     return Template.instance().dispNotifications();
   },
@@ -49,9 +49,9 @@ Template.listOfReportedUsers.helpers({
   }
 });
 
-Template.listOfReportedUsers.events({
+Template.listOfReportedLetters.events({
   "click .reportMarkAsRead": function(event, template){
-    
+
     Meteor.call('reportMarkAsRead', this._id, function(error, result) { });
   }
 });

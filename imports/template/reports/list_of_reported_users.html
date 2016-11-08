@@ -1,4 +1,4 @@
-<template name="listOfReportedUsers">
+<template name="listOfReportedLetters">
   <div class="page-heder well">
     <h3>Reports</h3>
   </div>
@@ -9,8 +9,8 @@
 
       {{#if reports.count}}
         {{#each reports}}
-          {{#if equals type 'reported user'}}
-            <p class="alert {{#if hasBeenSeen}}  {{else}} reportMarkAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actorId}} {{actorUsername}} {{else}} <a href="{{pathFor 'single user' userId=actorId}}"> {{actorUsername}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'single user' userId=subjectId}}"> {{subjectUsername}} </a> 's  <a href="{{pathFor 'questionnaire by id' questionnaireId=questionnaireId}}">Details</a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
+          {{#if equals type 'reported letter'}}
+            <p class="alert {{#if hasBeenSeen}}  {{else}} reportMarkAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actor_id}} {{actor_username}} {{else}} <a href="{{pathFor 'single user' userId=actor_id}}"> {{actor_username}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'single user' userId=subject_id}}"> {{subject_username}} </a> 's  <a href="{{pathFor 'letter by id' letterId=letter_id}}">Letter</a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
           {{/if}}
         {{/each}}
 

@@ -93,13 +93,13 @@ sys.route('/activities/user-management', {
 sys.route('/activities/reports', {
   name: 'reports',
   action() {
-    BlazeLayout.render('layout', { main: 'isModerator', targetTemplate: 'listOfReportedUsers' });
+    BlazeLayout.render('layout', { main: 'isModerator', targetTemplate: 'listOfReportedLetters' });
   },
 });
 
-sys.route('/questionnaire/:questionnaireId', {
-  name: 'questionnaire by id',
+sys.route('/letter/:letterId', {
+  name: 'letter by id',
   action() {
-    BlazeLayout.render('layout', { main: 'isModerator', targetTemplate: 'questionnaireById' });
+    BlazeLayout.render('layout', { main: 'isModerator', targetTemplate: 'letterById' });
   },
 });
