@@ -1,19 +1,6 @@
-import './questionnaire.html';
+import './letter_to_santa.html';
 
-
-Template.questionnaire.helpers({
-  create: function(){
-
-  },
-  rendered: function(){
-
-  },
-  destroyed: function(){
-
-  },
-});
-
-Template.questionnaire.events({
+Template.letterToSanta.events({
   "click #submit": function(event, template){
     event.preventDefault();
 
@@ -65,7 +52,7 @@ Template.questionnaire.events({
        shippingAddress: shippingAddress,
      }
 
-     Meteor.call("createNewQuestionnaire", data, function(error, result){
+     Meteor.call("createNewLetter", data, function(error, result){
        if(error){
          Bert.alert(error.error, 'danger', 'growl-top-right' );
        }

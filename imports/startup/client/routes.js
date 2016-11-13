@@ -36,7 +36,7 @@ FlowRouter.route('/user/:userId', {
 FlowRouter.route('/my-gift', {
   name: 'my gift',
   action() {
-    BlazeLayout.render('layout', { main: 'MyGift' });
+    BlazeLayout.render('layout', { main: 'myGift' });
   },
 });
 
@@ -87,5 +87,19 @@ sys.route('/activities/user-management', {
   name: 'user management activity',
   action() {
     BlazeLayout.render('layout', { main: 'isModerator', targetTemplate: 'userManagementLogs' });
+  },
+});
+
+sys.route('/activities/reports', {
+  name: 'reports',
+  action() {
+    BlazeLayout.render('layout', { main: 'isModerator', targetTemplate: 'listOfReportedLetters' });
+  },
+});
+
+sys.route('/letter/:letterId', {
+  name: 'letter by id',
+  action() {
+    BlazeLayout.render('layout', { main: 'isModerator', targetTemplate: 'letterById' });
   },
 });

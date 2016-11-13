@@ -1,0 +1,48 @@
+<template name="reportLetterModal">
+  <div class="modal fade">
+      <div class="modal-dialog">
+          <div class="modal-content">
+            <form class="reportLetterModal">
+
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4>Report This letter</h4>
+              </div>
+              <div class="modal-body">
+
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="reportCategory" value="spam" checked>
+                    Spam
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="reportCategory" value="abusive">
+                    Abusive
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="reportCategory" value="inappropriate">
+                    Inappropriate
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="reportCategory" value="offensive">
+                    Offensive
+                  </label>
+                </div>
+              </div><!--modal body-->
+
+              <div class="modal-footer">
+                  <button id="report" class="btn btn-primary btn-raised pull-right">Report</button>
+              </div>
+
+            </form>
+
+          </div><!--modal content-->
+      </div><!--modal dialog-->
+  </div>
+</template>

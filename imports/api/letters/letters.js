@@ -2,9 +2,9 @@
 import { Mongo } from 'meteor/mongo';
 
 
-export const Questionnaires = new Mongo.Collection('questionnaires');
+export const Letters = new Mongo.Collection('letters');
 
-Questionnaires.deny({
+Letters.deny({
   insert() { return true; },
   update() { return true; },
   remove() { return true; },

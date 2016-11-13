@@ -10,7 +10,7 @@
         <div class="list-group">
           <a href="#" class="list-group-item active"> Notification</a>
           <a href="{{pathFor 'user management activity'}}" class="list-group-item"><span class="badge">{{unreadUserManagementLogCount}}</span> User Management </a>
-          <a href="#" class="list-group-item"><span class="badge">0</span> Report </a>
+          <a href="{{pathFor 'reports'}}" class="list-group-item"><span class="badge">{{unreadReportCount}}</span> Report </a>
         </div>
       </div>
       <div class="col-md-9">

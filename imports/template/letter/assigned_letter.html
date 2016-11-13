@@ -1,40 +1,16 @@
-<template name="profile">
-  <div class="panel panel-default">
-      <div class="panel-body">
-        {{#unless currentUser}}
-          <h5>Please login to see this information</h5>
-        {{else}}
-        {{#if Template.subscriptionsReady}}
+<template name="assignedLetter">
+  {{#if Template.subscriptionsReady}}
+    {{#with letter}}
+      {{#if letter.received}}
 
-          {{#with userInfo}}
+        {{> giftRecieved letter=this}}
 
-            <div class="row">
-              <div class="col-md-2">
-              <img src="{{#if profile.avatar.image_192}} {{profile.avatar.image_192}} {{else}}/default-avatar.png{{/if}}" alt="" height="100" width="100" />
-              </div>
-              <div class="col-md-10">
-                <h5>Name : {{username}}</h5>
-                <h6>
-                  {{#if equals _id currentUser._id}}
-                    <div class="btn btn-default" id="changeProfilePicture">
-                      Change Profile Picture
-                    </div>
-                  {{/if}}
-                </h6>
-              </div>
-            </div>
+      {{else}}
+          {{#unless letter.sent}}
 
-
-
-            <br>
-            <br>
-
-          {{/with}}
-
-          {{#with letter}}
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h2 class="panel-title">My Letter to santa</h2>
+                <h2 class="panel-title">Your assigned letter</h2>
               </div>
               <div class="panel-body">
                 <div class="col-md-4">
@@ -67,14 +43,39 @@
                 </div>
               </div>
             </div>
-          {{/with}}
 
-          {{/if}}
-        {{/unless}}
+            {{#unless letter.reported}}
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="btn btn-block btn-default" id="reportUser">
+                    Report User
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="btn btn-block btn-default" id="giftConfirmation">
+                    I have sent the Gift.
+                  </div>
+                </div>
+              </div>
+            {{else}}
+              {{> thanksForReporting}}
+            {{/unless}} <!-- letter.reported -->
 
 
 
-      </div>
-    </div>
+          {{else}}
+            {{> thanksForParticipating}}
+          {{/unless}}<!--letter.sent -->
+
+      {{/if}}
+
+    {{else}}
+      {{> thanksForRegistering}}
+    {{/with}}
+  {{/if}}
+
 
 </template>

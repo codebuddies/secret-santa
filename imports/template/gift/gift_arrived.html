@@ -1,0 +1,14 @@
+<template name="giftArrived">
+  <div class="jumbotron align-center">
+    <div class="container">
+      <div class="row">
+          <i class="fa fa-gift fa-5x"></i>
+          <p>Santa has delivered the gift.</p>
+          <p>Share this on twitter #secretsanta</p>
+          {{#unless received}}
+            <div class="btn btn-default" id="confirmDelivery"> Confirm Delivery</div>
+          {{/unless}}
+      </div>
+     </div>
+  </div>
+</template>
