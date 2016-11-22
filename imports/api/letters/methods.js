@@ -31,7 +31,9 @@ Meteor.methods({
          lastname: data.lastname,
          time_zone: user.profile.time_zone,
          avatar: user.profile.avatar.image_512
-      }
+      },
+      status:"unassigned",
+
     }
 
     const letterId = Letters.insert(letter);
@@ -81,9 +83,9 @@ Meteor.methods({
         type : 'reported letter'
       }
 
-      Reports.insert(report);
+      const reportId = Reports.insert(report);
       Letters.update({_id:data.letterId}, {$set:{
-        'reported':true
+        'status':"reported"
       }});
 
       return true;
@@ -111,8 +113,8 @@ Meteor.methods({
     }
 
     Letters.update({_id:data.letterId}, {$set:{
-      sent:true,
-      'secret_stant.gift_details': data.giftDetail
+      'gift.sent':true,
+      'gift.sent_details': data.giftDetail
     }});
 
     return true;
@@ -137,11 +139,129 @@ Meteor.methods({
     }
 
     Letters.update({'user.id':data.receiverId}, {$set:{
-      received:true,
-      gift_details: data.giftDetail
+      'gift.received':true,
+      'gift.received_details': data.giftDetail
     }});
 
     return true;
+
+  }
+});
+
+Meteor.methods({
+  falseAlarm:function(data){
+    check(data, {
+      letterId: String
+    });
+
+    if (!this.userId) {
+     throw new Meteor.Error('Letters.methods.falseAlarm.not-logged-in', 'Must be logged in to perform this task.');
+    }
+    const moderator = Meteor.user();
+    if (!moderator || !Roles.userIsInRole(moderator, ['admin','moderator'])) {
+      throw new Meteor.Error(403, "Access denied")
+    }
+    const subject = Letters.findOne({_id:data.letterId}).user
+    const matter = " as appropriate.";
+
+     const report = {
+       actor_id : moderator._id,
+       actor_username : moderator.username ,
+       subject_id : subject.id,
+       subject_username : subject.firstname,
+       letter_id : data.letterId,
+       createdAt : new Date(),
+       read:[moderator._id],
+       action : 'stated',
+       matter : matter,
+       icon : 'fa-flag-checkered',
+       type : 'verified'
+     }
+
+     const reportId = Reports.insert(report);
+     Letters.update({_id:data.letterId}, {$set:{
+       'status':'assigned',
+       'verified': true
+     }});
+
+     return true;
+
+  }
+});
+
+Meteor.methods({
+  blockUser:function(data){
+    check(data, {
+      letterId: String,
+      userId: String,
+      santaId: String
+    });
+
+    if (!this.userId) {
+     throw new Meteor.Error('Letters.methods.falseAlarm.not-logged-in', 'Must be logged in to perform this task.');
+    }
+    const moderator = Meteor.user();
+    if (!moderator || !Roles.userIsInRole(moderator, ['admin','moderator'])) {
+      throw new Meteor.Error(403, "Access denied")
+    }
+
+    const subject = Letters.findOne({_id:data.letterId}).user;
+    const matter = " as invalid.";
+    const letter = Letters.findOne({"secret_santa.id": data.userId});
+
+
+    const report = {
+      actor_id : moderator._id,
+      actor_username : moderator.username ,
+      subject_id : subject.id,
+      subject_username : subject.firstname,
+      letter_id : data.letterId,
+      createdAt : new Date(),
+      read:[moderator._id],
+      action : 'stated',
+      matter : matter,
+      icon : 'fa-times',
+      type : 'marked invalid'
+    }
+
+    Letters.update({_id:data.letterId}, {
+      $unset:{
+        'secret_santa':""
+      },
+      $set:{
+        'status': "invalid"
+      }
+    });
+
+    if(letter.user.id === data.santaId ){
+
+      Letters.update({_id:letter._id}, {
+        $unset:{
+          'secret_santa':""
+        },
+        $set:{
+          'status': "unassigned"
+        }
+      });
+
+      Reports.insert(report);
+
+      return true;
+    }else{
+
+      Letters.update({_id:letter._id}, {$set:{
+        'secret_santa.id':data.santaId,
+        'status': 'reassigned'
+      }});
+
+      Reports.insert(report);
+
+      return true;
+    }
+
+
+
+
 
   }
 });

@@ -1,12 +1,12 @@
 <template name="assignedLetter">
   {{#if Template.subscriptionsReady}}
     {{#with letter}}
-      {{#if letter.received}}
+      {{#if letter.gift.received}}
 
         {{> giftRecieved letter=this}}
 
       {{else}}
-          {{#unless letter.sent}}
+          {{#unless letter.gift.sent}}
 
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -44,7 +44,10 @@
               </div>
             </div>
 
-            {{#unless letter.reported}}
+            {{#unless equals letter.status 'reported'}}
+            {{#if letter.verified}}
+              {{> accidentallyReportedLetter}}
+            {{/if}}
               <div class="row">
                 <div class="col-md-12">
                   <div class="btn btn-block btn-default" id="reportUser">

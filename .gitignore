@@ -13,3 +13,4 @@ Thumbs.db
 #####################
 .atomignore
 my-settings.json
+.clipboard

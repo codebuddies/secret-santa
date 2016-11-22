@@ -5,9 +5,9 @@
 
         {{#if letter.secret_santa.id}}
 
-          {{#if letter.sent}}
+          {{#if letter.gift.sent}}
 
-            {{> giftArrived received=letter.received}}
+            {{> giftArrived received=letter.gift.received}}
 
           {{else}}
 

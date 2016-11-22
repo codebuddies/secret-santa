@@ -37,6 +37,39 @@
         </div>
       </div>
 
+      {{#if equals letter.status 'invalid'}}
+        <div class="alert alert-warning" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          Invalid
+        </div>
+      {{else}}
+      <div class="row">
+        <div class="col-md-12">
+          <div class="btn btn-block btn-default" id="blockUser">
+            Block the user
+          </div>
+        </div>
+      </div>
+      <br>
+
+
+      {{#if letter.verified}}
+        {{> verifiedLetter}}
+      {{else}}
+        <div class="row">
+          <div class="col-md-12">
+            <div class="btn btn-block btn-default" id="falseAlarm">
+              False Alarm
+            </div>
+          </div>
+        </div>
+      {{/if}}
+
+      {{/if}}
+
+
+
     {{/with}}
   {{/if}}
 

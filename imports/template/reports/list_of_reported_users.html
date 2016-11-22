@@ -10,7 +10,13 @@
       {{#if reports.count}}
         {{#each reports}}
           {{#if equals type 'reported letter'}}
-            <p class="alert {{#if hasBeenSeen}}  {{else}} reportMarkAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> {{#if isActorAdmin actor_id}} {{actor_username}} {{else}} <a href="{{pathFor 'single user' userId=actor_id}}"> {{actor_username}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'single user' userId=subject_id}}"> {{subject_username}} </a> 's  <a href="{{pathFor 'letter by id' letterId=letter_id}}">Letter</a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
+            <p class="alert {{#if hasBeenSeen}}  {{else}} reportMarkAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> Santa {{#if isActorAdmin actor_id}} {{actor_username}} {{else}} <a href="{{pathFor 'single user' userId=actor_id}}"> {{actor_username}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'single user' userId=subject_id}}"> {{subject_username}} </a> 's  <a href="{{pathFor 'letter by id' letterId=letter_id}}">Letter</a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
+          {{/if}}
+          {{#if equals type 'false alarm'}}
+            <p class="alert {{#if hasBeenSeen}}  {{else}} reportMarkAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> Admin {{#if isActorAdmin actor_id}} {{actor_username}} {{else}} <a href="{{pathFor 'single user' userId=actor_id}}"> {{actor_username}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'single user' userId=subject_id}}"> {{subject_username}} </a> 's  <a href="{{pathFor 'letter by id' letterId=letter_id}}">Letter</a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
+          {{/if}}
+          {{#if equals type 'marked invalid'}}
+            <p class="alert {{#if hasBeenSeen}}  {{else}} reportMarkAsRead alert-info{{/if}}"><i class="fa {{icon}}" aria-hidden="true"> </i> Admin {{#if isActorAdmin actor_id}} {{actor_username}} {{else}} <a href="{{pathFor 'single user' userId=actor_id}}"> {{actor_username}}  </a>  {{/if}} {{action}} <a href="{{pathFor 'single user' userId=subject_id}}"> {{subject_username}} </a> 's  <a href="{{pathFor 'letter by id' letterId=letter_id}}">Letter</a> <i>{{matter}}</i> {{dispDate createdAt}} </p>
           {{/if}}
         {{/each}}
 
