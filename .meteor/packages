@@ -38,3 +38,4 @@ acemtp:accounts-slack
 http
 check
 meteorhacks:aggregate
+percolate:synced-cron
