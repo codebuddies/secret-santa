@@ -19,7 +19,9 @@
             {{> loginButtons}}
             <!-- <li><button class="btn btn-primary signIn"><img src="/images/slack-icon.png">&nbsp;&nbsp; Sign In</button></li> -->
           {{/unless}}
-
+          {{#if isInRole 'admin'}}
+            {{> loginButtons}}
+          {{/if}}
           {{#if currentUser}}
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
