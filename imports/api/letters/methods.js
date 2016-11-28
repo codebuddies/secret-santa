@@ -30,7 +30,8 @@ Meteor.methods({
          firstname: data.firstname,
          lastname: data.lastname,
          time_zone: user.profile.time_zone,
-         avatar: user.profile.avatar.image_512
+         avatar: user.profile.avatar.image_512,
+         email:  user.email
       },
       status:"unassigned",
 
@@ -39,6 +40,9 @@ Meteor.methods({
     const letterId = Letters.insert(letter);
 
     if (letterId) {
+      this.unblock();
+      sendWelcomeEmail(letter.user);
+
       Meteor.users.update({_id:user._id}, {$set:{
         'letter.sent':true
       }});
@@ -117,6 +121,15 @@ Meteor.methods({
       'gift.sent_details': data.giftDetail
     }});
 
+    let person = {
+      name: letter.user.firstname,
+      email: letter.user.email
+    }
+
+    this.unblock();
+    giftSentEmailToSender(user, person);
+    giftSentEmailToReceiver(person);
+
     return true;
   }
 });
@@ -133,6 +146,7 @@ Meteor.methods({
     }
 
     const user = Meteor.user();
+    const letter = Letters.findOne({'user.id':data.receiverId});
 
     if(data.receiverId !== user._id){
       throw new Meteor.Error(500, "You are trying do something fishy.")
@@ -142,6 +156,17 @@ Meteor.methods({
       'gift.received':true,
       'gift.received_details': data.giftDetail
     }});
+
+    let person = {
+      name: letter.user.firstname,
+      email: letter.user.email
+    }
+    let santa = {
+      email: letter.secret_santa.email
+    }
+    this.unblock();
+    giftReceivedEmailToSender(santa, person);
+    giftReceivedEmailToReceiver(person);
 
     return true;
 

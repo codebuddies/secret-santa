@@ -2,6 +2,13 @@
   "private": {
     "production": false,
     "email": {
+      "from": "codebuddiesdotorg@gmail.com",
+      "mailgun": {
+        "username":"username",
+        "password": "password",
+        "host": "host",
+        "port": "port"
+      },
       "emailProvider": {
         "apiKey" :"api _key",
         "SMTP": "smtp"
