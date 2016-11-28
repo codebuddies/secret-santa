@@ -5,7 +5,7 @@ import {SyncedCron} from 'meteor/percolate:synced-cron';
 
 gravityPickAndAirMix = function(){
   var availableLetters = Letters.find({$and: [ {'secret_santa':{$exists:false}}, {'status':'unassigned'} ]}).fetch();
-  console.log("available letters",availableLetters.length);
+  console.log("gravityPickAndAirMix - available letters",availableLetters.length);
 
   const length = availableLetters.length;
   if (length > 3) {
@@ -15,13 +15,19 @@ gravityPickAndAirMix = function(){
 
         const firstLetterId = availableLetters[0]._id;
         const secret_santa = {
-          id: availableLetters[i].user.id
+          id: availableLetters[i].user.id,
+          email: availableLetters[i].user.email
         }
         Letters.update({_id:firstLetterId}, {$set:{
             "secret_santa":secret_santa,
             "status": "assigned"
         }});
 
+        const person = {
+          name : availableLetters[0].user.firstname
+        }
+
+        sendOnAssignmentEmail(secret_santa, person);
 
       }else {
 
@@ -34,10 +40,17 @@ gravityPickAndAirMix = function(){
             "status": "assigned"
         }});
 
+        const person = {
+          name : availableLetters[i+1].user.firstname
+        }
+
+        sendOnAssignmentEmail(secret_santa, person);
 
       }
     }
 
+  }else {
+    console.log("gravityPickAndAirMix - not enough users");
   }
 
 
@@ -49,7 +62,7 @@ SyncedCron.add({
     schedule: function(parser) {
 
         if (Meteor.settings.private.testMode) {
-          return parser.text('Every 10 min');
+          return parser.text('Every 4 min');
         }
           return parser.text(Meteor.settings.private.cronJob.parserText);
     },
