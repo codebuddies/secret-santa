@@ -10,7 +10,7 @@
       {{#each getUser}}
 
         <div class="col-md-2">
-          <img src="/default-avatar.png" alt="avtar" height="150" width="150" />
+          <img src="{{#if currentUser.profile.avatar.default}}{{currentUser.profile.avatar.default}}{{else}}/default-avatar.png{{/if}}" alt="avtar" height="150" width="150" />
         </div>
         <div class="col-md-10">
           <form class="form-horizontal">

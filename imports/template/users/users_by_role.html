@@ -25,7 +25,7 @@
             <div class="panel-body">
 
               <div class="col-md-3">
-                <img src="/default-avatar.png" alt="avtar" />
+                <img src="{{#if currentUser.profile.avatar.default}}{{currentUser.profile.avatar.default}}{{else}}/default-avatar.png{{/if}}" alt="avtar" />
               </div>
               <div class="col-md-9">
                 Username : {{username}} <br>

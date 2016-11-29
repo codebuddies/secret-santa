@@ -19,9 +19,43 @@
 
 body{
   background-color: cornflowerblue;
+  color: #FFF;
 }
 
 ol {
 	font-size: 2em;
 	font-weight: 200;
+}
+
+.well {
+  background-color: #0F8A5F;
+}
+
+.navbar-brand > .fa{
+  color: #34A65F;
+}
+
+.navbar-brand > .navbar-title{
+  color: #CC231E;
+}
+
+.jumbotron {
+  background-color: #235E6F;
+}
+
+.panel {
+  background-color: #235E6F;
+  border: 0;
+}
+
+.introduction {
+  background-color: #235E6F;
+}
+
+.howDoesItWorks {
+  background-color: #0F8A5F;
+}
+
+.registerForSecretSanta {
+  background-color: #CC231E;
 }
