@@ -24,8 +24,8 @@ Template.singleUser.events({
     var currentAuthorization = template.find('#authorization').value;
     var pastAuthorization =  this.roles[0];
     var userId = this._id;
-    var username = this.username;
-    Meteor.call("updateRoles",this._id,this.username,currentAuthorization,pastAuthorization, function(error, result) {
+    var slack_username = this.slack_username;
+    Meteor.call("updateRoles",this._id,this.slack_username,currentAuthorization,pastAuthorization, function(error, result) {
       if(error){
         Bert.alert( error.reason, 'danger', 'growl-top-right' );
       }
