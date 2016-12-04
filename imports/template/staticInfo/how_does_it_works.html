@@ -1,17 +1,42 @@
 <template name="howDoesItWorks">
 
-<div class="jumbotron">
+<div class="jumbotron howDoesItWorks">
     <div class="page-header">
-      <h3>How does it work?</h3>
+      <h3>How does this work?</h3>
     </div>
 
     <ol>
-    	<li>Sign in with your CodeBuddies Slack team. (If you don't have an account, scroll down to get your Slack invite!)</li>
-    	<li>Fill out the form.</li>
-    	<li>You'll be assigned to be someone's Secret Santa.</li>
-    	<li>Give them your gift!</li>
-    	<li>When you've received your gift from your Secret Santa, click to confirm that you've received the gift.</li>
+    	<li>Sign in with any Slack team and account. <br /> <small>If you don't have a Slack account, and if you're interested in joining a friendly and not-for-profit open-sourced community for independent code learners, feel free to join codebuddiesmeet.slack.com:</small><script async defer src="https://codebuddiesmeet.herokuapp.com/slackin.js?large"></script></li>
+    	<li>Fill out your gift preferences ("letter to Santa") on the next screen.</li>
+    	<li>Watch out for a notification and an email as soon as you're assigned to be someone's Secret Santa!</li>
+    	<li>Give them a gift <strong>around $10</strong> before the deadline: <strong>December 22nd, 2016</strong>!</li>
+    	<li>When you've received your gift from your Secret Santa, please be sure to log in and <strong>click to confirm that you've received a gift</strong> from your Secret Santa.</li>
+        <li>Everyone who's fulfilled their Secret Santa duties will be entered into a raffle on <strong>December 23rd</strong> to receive a free gift (think: one free month of a course, a gift card, etc.)</li>
     </ol>
+    <div class="page-header">
+      <h3>FAQ</h3>
+      <ol>
+        <li>How are participants matched as Secret Santas?</li>
+        <p>The matching process is automatic! We have a cron job that runs every few hours and assigns newly registered users to their Secret Santas, and vice versa.</p>
+        <li>I noticed a bug. How do I report it?</li>
+        <p>This project is open-sourced! Please file a bug <a href="https://github.com/codebuddiesdotorg/secret-santa/issues">here</a>.</p>
+        <li>When is the deadline to sign up as a Secret Santa?</li>
+        <p>All gifts are due by December 22nd! We will turn off signup by December 21st.</p>
+        <li>Why are gifts suggested to be around $10? Can I give more or less than that?</li>
+        <p>We figured $10 was the most reasonable amount for a virtual gift, but of course you can give a little more or less than that.</p>
+        <li>I signed up, but for whatever reason I don't want to become a Secret Santa anymore! Can I withdraw?</li>
+        <p>You can click to withdraw from being a Secret Santa as long as you have not yet received a gift. If there are extenuating circumstances, please <a href="mailto:codebuddiesdotorg@gmail.com?Subject=Secret%20Santa%20Problem">email us</a> as soon as possible.</p>
+        <li>I suspect that the person I've been assigned to as a Secret Santa is not a serious participant, since they've filled out almost next to nothing in their profile. What do I do?</li>
+        <p>You can flag the user as spam, and one of the moderators (@linda, @distalx, or ____) will check it out and remove the user from the queue if they are not legitimate. You will be assigned a new gift recipient.</p>
+        <li>I've given my gift! Now, how can I be sure that my Secret Santa will come through?</li>
+        <p>We trust in the honor system, and we will remind Santas who've already received a gift to send their gift.</p>
+      </ol>
+
+    </div>
+    <div class="page-header">
+      <h3>Why are you doing this?</h3>
+      <p>We wanted to spread the joy of more anonymous gift giving among the coding community this December! <br /><small>Also, one of the members of the CodeBuddies community thought of the idea and just ran with it.</small></p>
+    </div>
 </div>
 
 

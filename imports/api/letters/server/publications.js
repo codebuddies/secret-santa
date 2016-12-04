@@ -21,6 +21,6 @@ Meteor.publish("myLetter", function(){
 
 Meteor.publish("letterById", function(letterId){
   check(letterId, String);
-  console.log("letterId", letterId);
+  
   return Letters.find({'_id': letterId});
 });

@@ -13,14 +13,11 @@
               <img src="{{#if profile.avatar.image_192}} {{profile.avatar.image_192}} {{else}}/default-avatar.png{{/if}}" alt="" height="100" width="100" />
               </div>
               <div class="col-md-10">
+
                 <h5>Name : {{slack_username}}</h5>
-                <h6>
-                  {{#if equals _id currentUser._id}}
-                    <div class="btn btn-default" id="changeProfilePicture">
-                      Change Profile Picture
-                    </div>
-                  {{/if}}
-                </h6>
+                Slack Team : {{slack.team}} <br>
+                Email : {{email}} <br>
+
               </div>
             </div>
 

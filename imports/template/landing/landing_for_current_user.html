@@ -4,7 +4,7 @@
   {{else}}
 
     {{#unless currentUser.letter.sent}}
-      {{#unless isInRole 'admin, moderator'}}
+      {{#unless isInRole 'admin'}}
         {{> letterToSanta}}
       {{/unless}}
     {{else}}

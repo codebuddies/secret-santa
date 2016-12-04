@@ -19,9 +19,62 @@
 
 body{
   background-color: cornflowerblue;
+  color: #FFF;
 }
 
 ol {
 	font-size: 2em;
 	font-weight: 200;
+}
+
+small {
+	font-size: 20px;
+	line-height: 1;
+	display: block;
+	margin: 10px 0;
+}
+
+.well {
+  background-color: #0F8A5F;
+}
+
+.navbar-brand > .fa{
+  color: #34A65F;
+}
+
+.navbar-brand > .navbar-title{
+  color: #FFF;
+}
+
+.jumbotron {
+  background-color: #235E6F;
+}
+
+.panel {
+  background-color: #235E6F;
+  border: 0;
+}
+
+.introduction {
+  background-color: #235E6F;
+}
+
+.howDoesItWorks {
+  background-color: #0F8A5F;
+}
+
+.registerForSecretSanta {
+  background-color: #CC231E;
+}
+
+a:link, a:active, a:visited, a:hover { color: #fff;}
+.jumbotron a:link { text-decoration: underline;}
+
+.modal .modal-content{
+  background-color: #235E6F;
+}
+
+.list-group > a{
+  color: black;
+
 }

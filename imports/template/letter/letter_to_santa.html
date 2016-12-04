@@ -3,19 +3,19 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="page-header">
-          MySelf <span class="pull-right">0/3</span>
+          My Profile <span class="pull-right">0/3</span>
         </h3>
       </div>
       <div class="panel-body">
         <div class="form-horizontal">
           <div class="form-group">
-            <label for="firstname" class="control-label col-md-2">firstname:</label>
+            <label for="firstname" class="control-label col-md-2">First name:</label>
             <div class="col-md-4">
               <input type="text" class="form-control" id="firstname" value="{{#if currentUser.profile.firstname}}{{currentUser.profile.firstname}}{{/if}}">
             </div>
           </div>
           <div class="form-group">
-            <label for="lastname" class="control-label col-md-2">lastname:</label>
+            <label for="lastname" class="control-label col-md-2">Last name:</label>
             <div class="col-md-4">
               <input type="text" class="form-control" id="lastname" value="{{#if currentUser.profile.lastname}}{{currentUser.profile.lastname}}{{/if}}">
             </div>
@@ -56,7 +56,7 @@
             <div class="form-group">
             <label class="checkbox"><input type="checkbox" name="things" value="CSS">CSS</label>
             <label class="checkbox"><input type="checkbox" name="things" value="Swift">Swift</label>
-            <label class="checkbox"><input type="checkbox" name="things" value="">Spotify</label>
+            <label class="checkbox"><input type="checkbox" name="things" value="Spotify">Spotify</label>
             </div>
           </div>
 
@@ -72,13 +72,13 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="page-header">
-          Introduce yourself :<span class="pull-right">2/3</span>
+          Introduce yourself:<span class="pull-right">2/3</span>
         </h3>
       </div>
       <div class="panel-body">
         <div class="form-group">
           <!-- <label for="comment">Introduce yourself :</label> -->
-          <textarea class="form-control" rows="5" id="introduction" placeholder="To give your Secret Santa a better idea what you’d like, what other interests do you have"></textarea>
+          <textarea class="form-control" rows="5" id="introduction" placeholder="To give your Secret Santa a better idea of what you’d like, what other interests do you have?"></textarea>
         </div>
         <!-- <div class="btn btn-default pull-right">
           next
@@ -89,12 +89,12 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="page-header">
-          Gift preference :<span class="pull-right">3/3</span>
+          Gift preference:<span class="pull-right">3/3</span>
         </h3>
       </div>
       <div class="panel-body">
-        <label class="radio-inline"><input type="radio" id="preference" name="preference" value="virtual" checked="checked">I'd like to recieve and send virtual gift.</label>
-        <label class="radio-inline"><input type="radio" id="preference" name="preference" value="physical">I'd like to recieve and send physical gift.</label>
+        <label class="radio-inline"><input type="radio" id="preference" name="preference" value="virtual" checked="checked">I'd like to recieve and send a virtual gift.</label>
+        <!-- <label class="radio-inline"><input type="radio" id="preference" name="preference" value="physical">I'd like to recieve and send a physical gift.</label> -->
 
         <div id="shippingAddressBox"></div>
 

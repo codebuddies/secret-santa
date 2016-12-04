@@ -2,3 +2,15 @@
 // body {
 //   background-color: #7388A1;
 // }
+
+button.signIn {
+	color: #9b9b9b;
+	background: #fff;
+	font-weight: 700;
+	&:hover {
+		background: #fff;
+		color: #000;
+	}
+}
+.center { text-align: center;}
+

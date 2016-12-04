@@ -62,7 +62,7 @@ SyncedCron.add({
     schedule: function(parser) {
 
         if (Meteor.settings.private.testMode) {
-          return parser.text('Every 4 min');
+          return parser.text('Every 8 min');
         }
           return parser.text(Meteor.settings.private.cronJob.parserText);
     },
