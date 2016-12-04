@@ -4,7 +4,7 @@ import { Letters } from '../letters/letters.js';
 
 Meteor.methods({
   totalNumberOfParticipants:function(){
-    return Meteor.users.find().count();
+    return Meteor.users.find({duplicate: { $exists: false}}).count();
   }
 });
 
@@ -12,9 +12,10 @@ Meteor.methods({
   totalNumberOfUniqueTimezone:function(){
     const cursor = Meteor.users.aggregate([
                       {$group: { _id: "$profile.time_zone", count: {$sum: 1 }  } },
-                      {$group: { _id: null, count: {$sum: "$count" }} },
+                      // {$group: { _id: null, count: {$sum: "$count" }} },
                    ]);
 
+                   console.log(cursor);
     return cursor[0].count || 0;
   }
 });

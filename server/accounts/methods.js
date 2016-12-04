@@ -92,7 +92,7 @@ try {
       user.profile = pickField.profile;
       user.email = pickField.email;
 
-      console.log(user);
+      // console.log(user);
 
       let existingUser = Meteor.users.findOne({'email': pickField.email}, {createdAt: 1});
 
