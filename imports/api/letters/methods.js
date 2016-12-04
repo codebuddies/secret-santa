@@ -26,7 +26,7 @@ Meteor.methods({
       shipping_address: data.shippingAddress,
       user:{
          id: user._id,
-         name: user.profile.username,
+         name: user.profile.slack_username,
          firstname: data.firstname,
          lastname: data.lastname,
          time_zone: user.profile.time_zone,
@@ -75,7 +75,7 @@ Meteor.methods({
 
       const report = {
         actor_id : actor._id,
-        actor_username : actor.username ,
+        actor_username : actor.slack_username ,
         subject_id : subject.id,
         subject_username : subject.firstname,
         letter_id : data.letterId,
@@ -191,7 +191,7 @@ Meteor.methods({
 
      const report = {
        actor_id : moderator._id,
-       actor_username : moderator.username ,
+       actor_username : moderator.slack_username ,
        subject_id : subject.id,
        subject_username : subject.firstname,
        letter_id : data.letterId,
@@ -237,7 +237,7 @@ Meteor.methods({
 
     const report = {
       actor_id : moderator._id,
-      actor_username : moderator.username ,
+      actor_username : moderator.slack_username ,
       subject_id : subject.id,
       subject_username : subject.firstname,
       letter_id : data.letterId,

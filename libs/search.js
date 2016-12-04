@@ -8,5 +8,5 @@ RegExp.escape = function(query) {
 Meteor.users.search = function(query) {
   var cleanQueryString = RegExp.escape(query);
   var insensitiveCleanQueryString = new RegExp(cleanQueryString, "i");
-  return Meteor.users.find({$or: [ {'email':{ $regex:insensitiveCleanQueryString}},{'username':{ $regex:insensitiveCleanQueryString}}] });
+  return Meteor.users.find({$or: [ {'email':{ $regex:insensitiveCleanQueryString}},{'slack_username':{ $regex:insensitiveCleanQueryString}}] });
 };
