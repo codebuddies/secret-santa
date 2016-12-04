@@ -27,6 +27,13 @@ ol {
 	font-weight: 200;
 }
 
+small { 
+	font-size: 20px; 
+	line-height: 1;
+	display: block;
+	margin: 10px 0;
+}
+
 .well {
   background-color: #0F8A5F;
 }
@@ -36,7 +43,7 @@ ol {
 }
 
 .navbar-brand > .navbar-title{
-  color: #CC231E;
+  color: #FFF;
 }
 
 .jumbotron {
@@ -59,3 +66,6 @@ ol {
 .registerForSecretSanta {
   background-color: #CC231E;
 }
+
+a:link, a:active, a:visited, a:hover { color: #fff;}
+.jumbotron a:link { text-decoration: underline;}

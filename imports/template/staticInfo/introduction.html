@@ -1,24 +1,15 @@
 <template name="introduction">
   <div class="jumbotron introduction">
-    <h3>Secret Santa</h3>
-    <p>
-      Secret Santa is a Christmas ritual involving a group of people exchanging
-      anonymous gifts. Participants names are placed in a hat and each
-      person draws a name for whom they are to buy a gift. Presents are then
-      exchanged anonymously. There is usually a gift giving occasion, where
-      all the presents are placed on a table, with the name of the receiver, but
-      not the giver.<i>~ Wikipedia</i>
-    </p>
-
-    <p>
-      Currently there are {{totalNumberOfParticipants}} Participants from {{totalNumberOfUniqueTimezone}} different Timezones.
+    <h3 class="center">CodeBuddies Secret Santa</h3>
+    <p class="center">
+      Currently there are <strong>{{totalNumberOfParticipants}}</strong> participants from <strong>{{totalNumberOfUniqueTimezone}}</strong> different timezones.
 
     </p>
-    <p>
-      Total Number Of Gift Sent : {{totalGiftSent}}
+    <p class="center">
+      Total number of gifts sent: {{totalGiftSent}}
     </p>
-    <p>
-      Total Number of Gift Received : {{totalGiftReceived}}
+    <p class="center">
+      Total number of gifts received: {{totalGiftReceived}}
     </p>
   </div>
 </template>
