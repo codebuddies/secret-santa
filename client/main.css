@@ -27,8 +27,8 @@ ol {
 	font-weight: 200;
 }
 
-small { 
-	font-size: 20px; 
+small {
+	font-size: 20px;
 	line-height: 1;
 	display: block;
 	margin: 10px 0;
@@ -69,3 +69,12 @@ small {
 
 a:link, a:active, a:visited, a:hover { color: #fff;}
 .jumbotron a:link { text-decoration: underline;}
+
+.modal .modal-content{
+  background-color: #235E6F;
+}
+
+.list-group > a{
+  color: black;
+
+}

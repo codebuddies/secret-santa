@@ -11,12 +11,10 @@ Meteor.methods({
 Meteor.methods({
   totalNumberOfUniqueTimezone:function(){
     const cursor = Meteor.users.aggregate([
-                      {$group: { _id: "$profile.time_zone", count: {$sum: 1 }  } },
-                      // {$group: { _id: null, count: {$sum: "$count" }} },
+                      {$group: { _id: "$profile.time_zone_label" } },
                    ]);
 
-                   console.log(cursor);
-    return cursor[0].count || 0;
+    return cursor.length -1 || 0;
   }
 });
 
