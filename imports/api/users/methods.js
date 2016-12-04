@@ -73,10 +73,10 @@ Meteor.methods({
       Roles.setUserRoles(subjectId, current);
     }
 
-    const incident = IMPF(actor.username, subjectUsername , current, past);
+    const incident = IMPF(actor.slack_username, subjectUsername , current, past);
     const notification = {
       actorId : actor._id,
-      actorUsername : actor.username,
+      actorUsername : actor.slack_username,
       subjectId : subjectId,
       subjectUsername : subjectUsername,
       createdAt : new Date(),

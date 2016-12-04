@@ -33,8 +33,11 @@ var loggingInUserInfo = function(user) {
        scope: "users:read"
       }
     });
+
   return response.data.ok && response.data;
 };
+
+
 
 let filterForSlackLogins = (user) => {
     const username = user.name;
@@ -69,38 +72,59 @@ let generateGravatarURL = (email) => {
 }
 
 
-Accounts.onCreateUser(function(options, user) {
-
-  if (user.services.slack){
-    Roles.setRolesOnUserObj(user, ['user']);
-    const user_info = loggingInUserInfo(user);
-    const pickField = filterForSlackLogins(user_info.user)
+try {
+  Accounts.onCreateUser(function(options, user) {
 
 
-    user.username = pickField.username;
-    user.profile = pickField.profile;
-    user.email = pickField.email;
-    return user;
-  }
+    if (user.services.slack){
+      // console.log("===user");
+      // console.log(user);
+      // console.log("===options");
+      // console.log(options);
+      // console.log("===");
 
-  if(user.services.password){
-    const avatar = '/default-avatar.png';
-    const profile = {
-      avatar:avatar
+
+      const user_info = loggingInUserInfo(user);
+      const pickField = filterForSlackLogins(user_info.user)
+
+      user.slack_username = pickField.username;
+      user.slack = options.profile;
+      user.profile = pickField.profile;
+      user.email = pickField.email;
+
+      // console.log(user);
+
+      let existingUser = Meteor.users.findOne({'email': pickField.email}, {createdAt: 1});
+
+
+      if (!existingUser){
+        Roles.setRolesOnUserObj(user, ['user']);
+        return user;
+      }else{
+        user.duplicate = true;
+        user.duplicate_of = existingUser.slack;
+        return user;
+      }
+
+
     }
 
-    user.username = user.username;
-    user.profile = profile;
-    user.email = options.email;
-    return user;
-  }
+    if(user.services.password){
+      const avatar = '/default-avatar.png';
+      const profile = {
+        avatar:avatar
+      }
 
-});
+      user.username = user.username;
+      user.slack_username = user.username;
+      user.profile = profile;
+      user.email = options.email;
+      return user;
+    }
+
+  });
 
 
-// Accounts.onCreateUser(function(options, user) {
-//   //adding user as a default role
-//   Roles.setRolesOnUserObj(user, ['user']);
-//   return user;
-//
-// });
+} catch (e) {
+    console.log('err');
+}

@@ -1,0 +1,12 @@
+<template name="duplicateUser">
+  <div class="jumbotron align-center">
+    <div class="container">
+      <div class="row">
+          <i class="fa fa-frown-o fa-5x"></i>
+          <h4>Duplicate User</h4>
+          <h5>This email id is already in use.</h5>
+          <h6>Plase login using <a href="{{currentUser.duplicate_of.url}}">{{currentUser.duplicate_of.team}}</a>  slack team.</h6>
+      </div>
+     </div>
+  </div>
+</template>
