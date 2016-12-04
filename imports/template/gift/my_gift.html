@@ -22,7 +22,13 @@
         {{/if}}<!-- letter.secret_santa.id -->
 
       {{else}}
-        {{> letterToSanta}}
+
+        {{#if currentUser.duplicate}}
+          {{> duplicateUser}}
+        {{else}}
+          {{> letterToSanta}}
+        {{/if}}
+        
       {{/with}}
 
 

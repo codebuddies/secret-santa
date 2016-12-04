@@ -1,10 +1,15 @@
 <template name="landingForCurrentUser">
-  {{#unless currentUser.letter.sent}}
-    {{#unless isInRole 'admin, moderator'}}
-      {{> letterToSanta}}
-    {{/unless}}
+  {{#if currentUser.duplicate}}
+    {{> duplicateUser}}
   {{else}}
 
-    {{> assignedLetter}}
-  {{/unless}}
+    {{#unless currentUser.letter.sent}}
+      {{#unless isInRole 'admin, moderator'}}
+        {{> letterToSanta}}
+      {{/unless}}
+    {{else}}
+
+      {{> assignedLetter}}
+    {{/unless}}
+  {{/if}}
 </template>

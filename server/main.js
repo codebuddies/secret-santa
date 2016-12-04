@@ -13,5 +13,5 @@ Meteor.startup(() => {
 
   process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtp.port;
 
-  SyncedCron.start();
+  // SyncedCron.start();
 });

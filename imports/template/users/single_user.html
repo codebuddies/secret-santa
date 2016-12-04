@@ -1,7 +1,7 @@
 <template name="singleUser">
   <div class="container">
     <div class="page-header">
-    <h3>{{#if getUser}} {{#each getUser}} {{username}} {{/each}} {{/if}} </h3>
+    <h3>{{#if getUser}} {{#each getUser}} {{slack_username}} {{/each}} {{/if}} </h3>
   </div>
 
   <div class="container">
@@ -18,7 +18,7 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">Username :</label>
               <div class="col-md-10">
-                {{username}}
+                {{slack_username}}
               </div>
             </div>
 
