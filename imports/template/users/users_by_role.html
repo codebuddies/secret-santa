@@ -5,7 +5,7 @@
   </div>
 
 
-    <p> <a href="{{pathFor 'manage user'}}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a> </p>
+    <p> <a href="{{pathFor 'manage user'}}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a> </p>
     <ul class="nav nav-tabs">
       <li role="presentation"><a href="{{pathFor 'user by role'}}/moderator">Moderator</a></li>
       <li role="presentation"><a href="{{pathFor 'user by role'}}/volunteer">Volunteer</a></li>
@@ -28,9 +28,9 @@
                 <img src="{{#if profile.avatar.default}}{{profile.avatar.default}}{{else}}/default-avatar.png{{/if}}" alt="avtar" />
               </div>
               <div class="col-md-9">
-                Username : {{slack_username}} <br>
-                Slack Team : {{slack.team}} <br>
-                Email : {{email}} <br>
+                Username: {{slack_username}} <br>
+                Slack Team: {{slack.team}} <br>
+                Email: {{email}} <br>
               </div>
 
             </div><!-- panel-body -->
@@ -39,7 +39,7 @@
 
       {{/each}}
     {{else}}
-      <h4>There are no {{currentRole}} user.</h4>
+      <h4>There are no {{currentRole}} users.</h4>
     {{/if}}
 
   </div>

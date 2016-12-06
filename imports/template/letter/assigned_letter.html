@@ -10,25 +10,26 @@
 
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h2 class="panel-title">Your assigned letter</h2>
+                <h2 class="panel-title">Your assigned recipient</h2>
               </div>
               <div class="panel-body">
+                <p>Reminder: please send your gift as soon as possible! All gifts are due by midnight GMT before December 22nd.</p>
                 <div class="col-md-4">
-                  <h3>Firstname : <small> {{letter.user.firstname}}</small></h3>
+                  <h3>First name: <small> {{letter.user.firstname}}</small></h3>
                 </div>
                 <div class="col-md-4">
-                  <h3>Lastname : <small> {{letter.user.lastname}}</small></h3>
+                  <h3>Last name: <small> {{letter.user.lastname}}</small></h3>
                 </div>
                 <div class="col-md-4">
-                  <h3>Preference : <small> {{letter.preference}} </small> </h3>
+                  <h3>Gift preference:<small> {{letter.preference}} </small> </h3>
                 </div>
                 <div class="col-md-12">
-                  <h3>Email : <small> {{letter.user.email}} </small> </h3>
+                  <h3>Email: <small> {{letter.user.email}} </small> </h3>
                 </div>
                 <hr>
                 <div class="col-md-6">
                   <div class="page-header">
-                    <h3>Introduction</h3>
+                    <h3>Introduction:</h3>
                   </div>
                   <h4>
                     {{letter.introduction}}
@@ -37,7 +38,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="page-header">
-                    <h3>Area of interest</h3>
+                    <h3>Areas of interest:</h3>
                   </div>
                   <h4>
                     {{letter.categories}}
@@ -62,7 +63,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="btn btn-block btn-default" id="giftConfirmation">
-                    I have sent the Gift.
+                    I have sent a ~$10 gift to the email address provided.
                   </div>
                 </div>
               </div>

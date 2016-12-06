@@ -78,3 +78,17 @@ a:link, a:active, a:visited, a:hover { color: #fff;}
   color: black;
 
 }
+img.img-circle {
+	width: 30px;
+	height: 30px;
+}
+.navbar-brand {
+	position: relative;
+	top: px;
+}
+
+@media (min-width: 768px) {
+.navbar-nav>li>a {
+		padding: 10px 15px;
+	}
+}

@@ -16,29 +16,29 @@ Template.letterToSanta.events({
      var shippingAddress = '';
 
      if ($.trim(firstname) == '') {
-       Bert.alert("firstname", 'warning', 'growl-top-right' );
+       Bert.alert("Please fill in your first name!", 'warning', 'growl-top-right' );
        return;
      }
 
      if ($.trim(lastname) == '') {
-       Bert.alert("lastname", 'warning', 'growl-top-right' );
+       Bert.alert("Please fill in your last name!", 'warning', 'growl-top-right' );
        return;
      }
 
      if (categories.length < 2) {
-       Bert.alert("At least select 3 things ", 'warning', 'growl-top-right' );
+       Bert.alert("Please select at least select three interests. ", 'warning', 'growl-top-right' );
        return;
      }
 
      if ($.trim(introduction) == '') {
-       Bert.alert("Introduction ", 'warning', 'growl-top-right' );
+       Bert.alert("Please introduce yourself!", 'warning', 'growl-top-right' );
        return;
      }
 
      if (preference === "physical") {
        shippingAddress = template.find('#shippingAddress').value;
        if ($.trim(shippingAddress) == '') {
-         Bert.alert("shipping address ", 'warning', 'growl-top-right' );
+         Bert.alert("What is your shipping address?", 'warning', 'growl-top-right' );
          return;
        }
      }
@@ -57,7 +57,7 @@ Template.letterToSanta.events({
          Bert.alert(error.error, 'danger', 'growl-top-right' );
        }
        if(result){
-          Bert.alert("Success", 'success', 'growl-top-right' );
+          Bert.alert("Success!", 'success', 'growl-top-right' );
        }
      });
 
