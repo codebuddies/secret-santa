@@ -23,6 +23,12 @@ FlowRouter.route('/', {
   },
 });
 
+FlowRouter.route('/faq', {
+  name: 'FAQ',
+  action() {
+    BlazeLayout.render('layout', { main: 'howDoesItWorks' });
+  },
+});
 
 //user routes
 FlowRouter.route('/user/:userId', {
@@ -39,6 +45,8 @@ FlowRouter.route('/my-gift', {
     BlazeLayout.render('layout', { main: 'myGift' });
   },
 });
+
+
 
 
 

@@ -5,7 +5,7 @@
   </div>
 
   <div class="container">
-    <p> <a href="{{pathFor 'manage user'}}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a> </p>
+    <p> <a href="{{pathFor 'manage user'}}"><i class="fa fa-arrow-left" aria-hidden="true"></i>Back</a> </p>
     {{#if getUser.count}}
       {{#each getUser}}
 
@@ -16,28 +16,28 @@
           <form class="form-horizontal">
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Username :</label>
+              <label class="col-sm-2 control-label">Username:</label>
               <div class="col-md-10">
                 {{slack_username}}
               </div>
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Slack Team :</label>
+              <label class="col-sm-2 control-label">Slack Team:</label>
               <div class="col-md-10">
                 {{slack.team}}
               </div>
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Email :</label>
+              <label class="col-sm-2 control-label">Email:</label>
               <div class="col-md-10">
                 {{email}}
               </div>
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">Status :</label>
+              <label class="col-sm-2 control-label">Status:</label>
               <div class="col-md-10">
                 {{#if isUpdateable _id roles.[0]}}
                   {{roles.[0]}}
@@ -58,7 +58,7 @@
 
       {{/each}}
     {{else}}
-      <h4>Sorry, something went wrong</h4>
+      <h4>Sorry, something went wrong.</h4>
     {{/if}}
   </div>
 

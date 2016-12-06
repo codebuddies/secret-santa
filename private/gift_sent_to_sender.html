@@ -2,19 +2,14 @@
 <head>
   <meta name="viewport" content="width=device-width" />
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>HTML email test</title>
+  <title>Thank you for sending a Secret Santa gift to your recipient!</title>
   <link href="styles.css" media="all" rel="stylesheet" type="text/css" />
 </head>
 
 <body itemscope itemtype="http://schema.org/EmailMessage">
 
+    <p>Thank you for sending a gift to {{person.name}}! You will receive a confirmation email once {{person.name}} logs in to the site to  confirm that they've received it.</p>
+    <p>(If they don't do it soon, it might be worth it to email them a friendly nudge to confirm that they've received your gift, and so we don't mark you as a delinquent Santa. ;))</p>
 
-    <p>Hi </p> <br>
-    <p>Thanks for sending a gift to {{person.name}} . You will receive a confirmation email once {{person.name}} receives it.</p>
-    <p>Join the conversation #secretsanta.</p> <br>
-
-
-    Thanks,<br>
-    -- Team Codebuddies.
 </body>
 </html>

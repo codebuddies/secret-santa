@@ -6,7 +6,7 @@ Template.sentGiftModal.events({
     const giftDetail = template.find('#giftDetail').value;
 
     if ($.trim(giftDetail) == '') {
-      Bert.alert("Gift Details ", 'warning', 'growl-top-right' );
+      Bert.alert("Gift Details", 'warning', 'growl-top-right' );
       return;
     }
 
@@ -22,7 +22,7 @@ Template.sentGiftModal.events({
        Bert.alert( error.reason, 'danger', 'growl-top-right' );
      }
      if(result){
-       Bert.alert( 'Thanks for sending a gift we hope that you will recieve your gift soon.', 'success', 'growl-top-right' );
+       Bert.alert( 'Thanks for sending your gift! We hope that you will recieve your gift from your Secret Santa soon.', 'success', 'growl-top-right' );
        Modal.hide();
      }
    });

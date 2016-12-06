@@ -12,7 +12,7 @@ sendWelcomeEmail = function (user) {
     to: user.email,
     from: Meteor.settings.private.email.from,
     html: SSR.render('welcome', template_data),
-    subject: "Hooray !!",
+    subject: "Welcome! (and some Secret Santa reminders)",
   }
 
   try {
@@ -40,7 +40,7 @@ sendOnAssignmentEmail = function (santa, person) {
     to: santa.email,
     from: Meteor.settings.private.email.from,
     html: SSR.render('assignedToPerson', template_data),
-    subject: "You’ve been assigned a Secret Santa match!",
+    subject: "Re: You’ve been assigned a Secret Santa match!",
   }
 
   try {
@@ -97,7 +97,7 @@ giftSentEmailToReceiver = function (person) {
     to: person.email,
     from: Meteor.settings.private.email.from,
     html: SSR.render('giftSentToReceiver', template_data),
-    subject: "Your Secret Santa has sent you a gift! Can you confirm it?",
+    subject: "Please confirm that your Secret Santa has emailed you a gift!",
   }
 
   try {
@@ -125,7 +125,7 @@ giftReceivedEmailToSender = function (santa, person) {
     to: santa.email,
     from: Meteor.settings.private.email.from,
     html: SSR.render('giftReceivedToSender', template_data),
-    subject: "Hooray!",
+    subject: "Your recipient has received your Secret Santa gift!",
   }
 
   try {
@@ -146,7 +146,7 @@ giftReceivedEmailToReceiver = function (person) {
     to: person.email,
     from: Meteor.settings.private.email.from,
     html: SSR.render('giftReceivedToReceiver'),
-    subject: "Hooray!",
+    subject: "Thank you for participating in Secret Santa!",
   }
 
   try {
