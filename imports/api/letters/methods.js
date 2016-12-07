@@ -31,7 +31,9 @@ Meteor.methods({
          lastname: data.lastname,
          time_zone: user.profile.time_zone,
          avatar: user.profile.avatar.image_512,
-         email:  user.email
+         email:  user.email,
+         slack_team: user.slack.team,
+         slack_team_url: user.slack.url
       },
       status:"unassigned",
 
@@ -118,7 +120,8 @@ Meteor.methods({
 
     Letters.update({_id:data.letterId}, {$set:{
       'gift.sent':true,
-      'gift.sent_details': data.giftDetail
+      'gift.sent_details': data.giftDetail,
+      'gift.sent_at': new Date()
     }});
 
     let person = {
@@ -154,7 +157,8 @@ Meteor.methods({
 
     Letters.update({'user.id':data.receiverId}, {$set:{
       'gift.received':true,
-      'gift.received_details': data.giftDetail
+      'gift.received_details': data.giftDetail,
+      'gift.received_at': new Date()
     }});
 
     let person = {

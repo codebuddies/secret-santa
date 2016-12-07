@@ -40,3 +40,4 @@ check
 meteorhacks:aggregate
 percolate:synced-cron
 meteorhacks:ssr
+patrickml:swal

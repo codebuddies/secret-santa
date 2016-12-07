@@ -4,7 +4,8 @@ sendWelcomeEmail = function (user) {
 
   const template_data = {
     user: {
-      name : user.firstname
+      name : user.firstname,
+      gift: Meteor.absoluteUrl('my-gift')
     }
   };
 
@@ -18,6 +19,7 @@ sendWelcomeEmail = function (user) {
   try {
    Email.send(data);
   } catch ( e ) {
+    console.log(e);
     return false;
   } finally {
     return true;
@@ -31,6 +33,9 @@ sendOnAssignmentEmail = function (santa, person) {
   SSR.compileTemplate('assignedToPerson', Assets.getText('assignment.html'));
 
   const template_data = {
+    santa: {
+      name : santa.slack_username
+    },
     person: {
       name : person.name
     }
@@ -46,6 +51,7 @@ sendOnAssignmentEmail = function (santa, person) {
   try {
    Email.send(data);
   } catch ( e ) {
+    console.log(e);
     return false;
   } finally {
     return true;
@@ -59,6 +65,9 @@ giftSentEmailToSender = function (santa, person) {
   SSR.compileTemplate('giftSentToSender', Assets.getText('gift_sent_to_sender.html'));
 
   const template_data = {
+    santa: {
+      name : santa.slack_username
+    },
     person: {
       name : person.name
     }
@@ -103,6 +112,7 @@ giftSentEmailToReceiver = function (person) {
   try {
    Email.send(data);
   } catch ( e ) {
+    console.log(e);
     return false;
   } finally {
     return true;
@@ -116,6 +126,9 @@ giftReceivedEmailToSender = function (santa, person) {
   SSR.compileTemplate('giftReceivedToSender', Assets.getText('gift_received_to_sender.html'));
 
   const template_data = {
+    santa:{
+      name: santa.slack_username
+    },
     person: {
       name : person.name
     }
@@ -131,6 +144,7 @@ giftReceivedEmailToSender = function (santa, person) {
   try {
    Email.send(data);
   } catch ( e ) {
+    console.log(e);
     return false;
   } finally {
     return true;
@@ -142,6 +156,13 @@ giftReceivedEmailToSender = function (santa, person) {
 giftReceivedEmailToReceiver = function (person) {
 
   SSR.compileTemplate('giftReceivedToReceiver', Assets.getText('gift_received_to_receiver.html'));
+
+  const template_data = {
+    person: {
+      name : person.name
+    }
+  };
+
   const data = {
     to: person.email,
     from: Meteor.settings.private.email.from,
@@ -152,6 +173,7 @@ giftReceivedEmailToReceiver = function (person) {
   try {
    Email.send(data);
   } catch ( e ) {
+    console.log(e);
     return false;
   } finally {
     return true;

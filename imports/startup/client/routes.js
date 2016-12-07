@@ -19,7 +19,7 @@ FlowRouter.notFound = {
 FlowRouter.route('/', {
   name: 'landing',
   action() {
-    BlazeLayout.render('layout', { main: 'landing' });
+    BlazeLayout.render('layout', { main: 'isInvalid', targetTemplate: 'landing' });
   },
 });
 
@@ -31,10 +31,10 @@ FlowRouter.route('/faq', {
 });
 
 //user routes
-FlowRouter.route('/user/:userId', {
-  name: 'user profile',
+FlowRouter.route('/my-profile', {
+  name: 'my profile',
   action() {
-    BlazeLayout.render('layout', { main: 'profile' });
+    BlazeLayout.render('layout', { main: 'isInvalid', targetTemplate: 'myProfile' });
   },
 });
 
@@ -42,7 +42,7 @@ FlowRouter.route('/user/:userId', {
 FlowRouter.route('/my-gift', {
   name: 'my gift',
   action() {
-    BlazeLayout.render('layout', { main: 'myGift' });
+    BlazeLayout.render('layout', { main: 'isInvalid', targetTemplate:'myGift' });
   },
 });
 

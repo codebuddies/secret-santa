@@ -1,0 +1,74 @@
+<template name="myProfile">
+  <div class="panel panel-default">
+      <div class="panel-body">
+        {{#unless currentUser}}
+          <h5>Please log in to see this information!</h5>
+        {{else}}
+        {{#if Template.subscriptionsReady}}
+
+          {{#with userInfo}}
+
+            <div class="row">
+              <div class="col-md-2">
+              <img src="{{#if profile.avatar.image_192}} {{profile.avatar.image_192}} {{else}}/default-avatar.png{{/if}}" alt="" height="100" width="100" />
+              </div>
+              <div class="col-md-10">
+
+                <h5>Name: {{slack_username}}</h5>
+                Slack Team: {{slack.team}} <br>
+                Email: {{email}} <br>
+
+              </div>
+            </div>
+
+
+
+            <br>
+            <br>
+
+          {{/with}}
+
+          {{#with letter}}
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="col-md-4">
+                  <h3>First name: <small> {{letter.user.firstname}}</small></h3>
+                </div>
+                <div class="col-md-4">
+                  <h3>Last name: <small> {{letter.user.lastname}}</small></h3>
+                </div>
+                <div class="col-md-4">
+                  <h3>Preference: <small> {{letter.preference}} </small> </h3>
+                </div>
+                <hr>
+                <div class="col-md-6">
+                  <div class="page-header">
+                    <h3>Introduction:</h3>
+                  </div>
+                  <h4>
+                    {{letter.introduction}}
+                  </h4>
+
+                </div>
+                <div class="col-md-6">
+                  <div class="page-header">
+                    <h3>Areas of interest</h3>
+                  </div>
+                  <h4>
+                    {{letter.categories}}
+                  </h4>
+
+                </div>
+              </div>
+            </div>
+          {{/with}}
+
+          {{/if}}
+        {{/unless}}
+
+
+
+      </div>
+    </div>
+
+</template>

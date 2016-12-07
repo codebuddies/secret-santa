@@ -1,4 +1,22 @@
+import { ReactiveVar } from 'meteor/reactive-var';
+
 import './sent_gift_modal.html';
+
+Template.sentGiftModal.onCreated(function() {
+
+  let template = Template.instance();
+
+  template.processing = new ReactiveVar( false );
+
+});
+
+
+Template.sentGiftModal.helpers({
+  processing() {
+    return Template.instance().processing.get();
+  }
+});
+
 
 Template.sentGiftModal.events({
   "click #confirm": function(event, template){
@@ -17,6 +35,8 @@ Template.sentGiftModal.events({
       letterId: this._id
     }
 
+    template.processing.set( true );
+
    Meteor.call("giftSent", data, function(error, result){
      if(error){
        Bert.alert( error.reason, 'danger', 'growl-top-right' );
@@ -32,4 +52,9 @@ Template.sentGiftModal.events({
     event.preventDefault();
     Modal.hide();
   }
+});
+
+
+Template.sentGiftModal.onDestroyed(function () {
+  this.processing.set( false );
 });
