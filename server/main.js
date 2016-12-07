@@ -13,5 +13,8 @@ Meteor.startup(() => {
 
   process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtp.port;
 
-  SyncedCron.start();
+  if ( Date.now() > new Date('December 11, 2016 10:10:10') || Meteor.settings.private.testMode) {
+    SyncedCron.start();
+  }
+
 });
