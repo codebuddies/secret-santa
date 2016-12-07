@@ -1,37 +1,44 @@
 <template name="myGift">
-  {{#if Template.subscriptionsReady}}
+  {{#unless currentUser}}
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h5>Please log in to see this information!</h5>
+      </div>
+    </div>  
+  {{else}}
+    {{#if Template.subscriptionsReady}}
 
-      {{#with letter}}
+        {{#with letter}}
 
-        {{#if letter.secret_santa.id}}
+          {{#if letter.secret_santa.id}}
 
-          {{#if letter.gift.sent}}
+            {{#if letter.gift.sent}}
 
-            {{> giftArrived received=letter.gift.received}}
+              {{> giftArrived received=letter.gift.received}}
+
+            {{else}}
+
+              {{> santasOnHisWay}}
+
+            {{/if}}<!-- letter.sent -->
 
           {{else}}
 
-            {{> santasOnHisWay}}
+            {{> thanksForRegistering}}
 
-          {{/if}}<!-- letter.sent -->
+          {{/if}}<!-- letter.secret_santa.id -->
 
         {{else}}
 
-          {{> thanksForRegistering}}
+          {{#if currentUser.duplicate}}
+            {{> duplicateUser}}
+          {{else}}
+            {{> letterToSanta}}
+          {{/if}}
 
-        {{/if}}<!-- letter.secret_santa.id -->
-
-      {{else}}
-
-        {{#if currentUser.duplicate}}
-          {{> duplicateUser}}
-        {{else}}
-          {{> letterToSanta}}
-        {{/if}}
-        
-      {{/with}}
+        {{/with}}
 
 
-  {{/if}}
-
+    {{/if}}
+  {{/unless}}
 </template>
