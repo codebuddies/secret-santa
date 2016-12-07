@@ -120,7 +120,8 @@ Meteor.methods({
 
     Letters.update({_id:data.letterId}, {$set:{
       'gift.sent':true,
-      'gift.sent_details': data.giftDetail
+      'gift.sent_details': data.giftDetail,
+      'gift.sent_at': new Date()
     }});
 
     let person = {
@@ -156,7 +157,8 @@ Meteor.methods({
 
     Letters.update({'user.id':data.receiverId}, {$set:{
       'gift.received':true,
-      'gift.received_details': data.giftDetail
+      'gift.received_details': data.giftDetail,
+      'gift.received_at': new Date()
     }});
 
     let person = {

@@ -1,4 +1,23 @@
+import { ReactiveVar } from 'meteor/reactive-var';
+
 import './received_gift_modal.html';
+
+
+Template.receivedGiftModal.onCreated(function() {
+
+  let template = Template.instance();
+
+  template.processing = new ReactiveVar( false );
+
+});
+
+
+Template.receivedGiftModal.helpers({
+  processing() {
+    return Template.instance().processing.get();
+  }
+});
+
 
 Template.receivedGiftModal.events({
   "click #confirm": function(event, template){
@@ -15,6 +34,8 @@ Template.receivedGiftModal.events({
       receiverId: Meteor.userId()
     }
 
+    template.processing.set( true );
+    
    Meteor.call("giftReceived", data, function(error, result){
      if(error){
        Bert.alert( error.reason, 'danger', 'growl-top-right' );
@@ -30,4 +51,8 @@ Template.receivedGiftModal.events({
     event.preventDefault();
     Modal.hide();
   }
+});
+
+Template.receivedGiftModal.onDestroyed(function () {
+  this.processing.set( false );
 });

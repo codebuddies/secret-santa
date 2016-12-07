@@ -1,4 +1,19 @@
 import './letter_to_santa.html';
+import { ReactiveVar } from 'meteor/reactive-var';
+
+Template.letterToSanta.onCreated(function() {
+
+  let template = Template.instance();
+
+  template.processing = new ReactiveVar( false );
+
+});
+
+Template.letterToSanta.helpers({
+  processing() {
+    return Template.instance().processing.get();
+  }
+});
 
 Template.letterToSanta.events({
   "click #submit": function(event, template){
@@ -52,12 +67,16 @@ Template.letterToSanta.events({
        shippingAddress: shippingAddress,
      }
 
+
+     template.processing.set( true );
+
      Meteor.call("createNewLetter", data, function(error, result){
        if(error){
          Bert.alert(error.error, 'danger', 'growl-top-right' );
        }
        if(result){
           Bert.alert("Success!", 'success', 'growl-top-right' );
+          template.processing.set( false );
        }
      });
 
@@ -74,4 +93,8 @@ Template.letterToSanta.events({
     }
 
   }
+});
+
+Template.letterToSanta.onDestroyed(function () {
+  this.processing.set( false );
 });

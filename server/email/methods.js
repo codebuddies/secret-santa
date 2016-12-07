@@ -18,6 +18,7 @@ sendWelcomeEmail = function (user) {
   try {
    Email.send(data);
   } catch ( e ) {
+    console.log(e);
     return false;
   } finally {
     return true;
@@ -46,6 +47,7 @@ sendOnAssignmentEmail = function (santa, person) {
   try {
    Email.send(data);
   } catch ( e ) {
+    console.log(e);
     return false;
   } finally {
     return true;
@@ -103,6 +105,7 @@ giftSentEmailToReceiver = function (person) {
   try {
    Email.send(data);
   } catch ( e ) {
+    console.log(e);
     return false;
   } finally {
     return true;
@@ -131,6 +134,7 @@ giftReceivedEmailToSender = function (santa, person) {
   try {
    Email.send(data);
   } catch ( e ) {
+    console.log(e);
     return false;
   } finally {
     return true;
@@ -152,6 +156,36 @@ giftReceivedEmailToReceiver = function (person) {
   try {
    Email.send(data);
   } catch ( e ) {
+    console.log(e);
+    return false;
+  } finally {
+    return true;
+  }
+
+
+}
+
+startupTestEmail = function () {
+
+  SSR.compileTemplate('testEmail', Assets.getText('test.html'));
+
+  const emailData = {
+    name: "Ron"
+  };
+
+  const email = {
+    to: "distalx@gmail.com",
+    from: Meteor.settings.private.email.from,
+    html: SSR.render('testEmail', emailData),
+    subject: "Startup test Email",
+  }
+
+
+
+  try {
+   Email.send(email);
+  } catch ( e ) {
+    console.log(e);
     return false;
   } finally {
     return true;
