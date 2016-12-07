@@ -1,2 +1,2 @@
-import './layout.html';
+import './layout.js';
 import './sys_layout.html';

@@ -17,7 +17,7 @@
         <ul class="nav navbar-nav navbar-right">
           {{#unless currentUser}}
             <!-- {{> loginButtons}} -->
-            <li><button class="btn btn-primary signIn"><img src="/images/slack-icon.png">&nbsp;&nbsp; Sign In</button></li>
+            <li><button class="btn btn-primary {{#unless currentUser}} continue-popup {{/unless}}"><img src="/images/slack-icon.png">&nbsp;&nbsp; Sign In</button></li>
           {{/unless}}
 
           {{#if currentUser}}
