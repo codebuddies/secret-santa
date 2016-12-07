@@ -181,32 +181,3 @@ giftReceivedEmailToReceiver = function (person) {
 
 
 }
-
-sendTestEmail = function () {
-
-  SSR.compileTemplate('testEmail', Assets.getText('test.html'));
-
-  const emailData = {
-    name: "CB",
-  };
-
-  const email = {
-    to: "distalx@gmail.com",
-    from: Meteor.settings.private.email.from,
-    html: SSR.render('testEmail', emailData),
-    subject: "Startup test Email",
-  }
-
-
-
-  try {
-   Email.send(email);
-  } catch ( e ) {
-    console.log(e);
-    return false;
-  } finally {
-    return true;
-  }
-
-
-}
