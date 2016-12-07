@@ -31,10 +31,10 @@ FlowRouter.route('/faq', {
 });
 
 //user routes
-FlowRouter.route('/user/:userId', {
-  name: 'user profile',
+FlowRouter.route('/my-profile', {
+  name: 'my profile',
   action() {
-    BlazeLayout.render('layout', { main: 'profile' });
+    BlazeLayout.render('layout', { main: 'myProfile' });
   },
 });
 

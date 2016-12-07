@@ -32,7 +32,7 @@
               </a>
 
               <ul class="dropdown-menu">
-                <li><a href="{{pathFor 'user profile' userId=currentUser._id}}">Profile</a></li>
+                <li><a href="{{pathFor 'my profile' userId=currentUser._id}}">My Profile</a></li>
 
                 {{#if isInRole 'admin, moderator'}}
                   <li role="separator" class="divider"></li>
