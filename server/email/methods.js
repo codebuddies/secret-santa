@@ -4,7 +4,8 @@ sendWelcomeEmail = function (user) {
 
   const template_data = {
     user: {
-      name : user.firstname
+      name : user.firstname,
+      gift: Meteor.absoluteUrl('my-gift')
     }
   };
 
@@ -32,6 +33,9 @@ sendOnAssignmentEmail = function (santa, person) {
   SSR.compileTemplate('assignedToPerson', Assets.getText('assignment.html'));
 
   const template_data = {
+    santa: {
+      name : santa.slack_username
+    },
     person: {
       name : person.name
     }
@@ -61,6 +65,9 @@ giftSentEmailToSender = function (santa, person) {
   SSR.compileTemplate('giftSentToSender', Assets.getText('gift_sent_to_sender.html'));
 
   const template_data = {
+    santa: {
+      name : santa.slack_username
+    },
     person: {
       name : person.name
     }
@@ -119,6 +126,9 @@ giftReceivedEmailToSender = function (santa, person) {
   SSR.compileTemplate('giftReceivedToSender', Assets.getText('gift_received_to_sender.html'));
 
   const template_data = {
+    santa:{
+      name: santa.slack_username
+    },
     person: {
       name : person.name
     }
@@ -146,6 +156,13 @@ giftReceivedEmailToSender = function (santa, person) {
 giftReceivedEmailToReceiver = function (person) {
 
   SSR.compileTemplate('giftReceivedToReceiver', Assets.getText('gift_received_to_receiver.html'));
+
+  const template_data = {
+    person: {
+      name : person.name
+    }
+  };
+
   const data = {
     to: person.email,
     from: Meteor.settings.private.email.from,
@@ -165,12 +182,12 @@ giftReceivedEmailToReceiver = function (person) {
 
 }
 
-startupTestEmail = function () {
+sendTestEmail = function () {
 
   SSR.compileTemplate('testEmail', Assets.getText('test.html'));
 
   const emailData = {
-    name: "Ron"
+    name: "CB",
   };
 
   const email = {
