@@ -38,6 +38,10 @@ small {
   background-color: #0F8A5F;
 }
 
+.giftItem {
+  background-color: #235E6F;
+}
+
 .navbar-brand > .fa{
   color: #34A65F;
 }
@@ -91,4 +95,16 @@ img.img-circle {
 .navbar-nav>li>a {
 		padding: 10px 15px;
 	}
+}
+
+label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:2px solid #235E6F;
 }

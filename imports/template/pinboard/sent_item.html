@@ -1,0 +1,19 @@
+<template name="sentItem">
+
+  <div class="col-md-1">
+      <img src="/images/Zeusbox-Christmas-Santa.ico" alt="santa" height="60px" width="60px"/>
+  </div>
+  <div class="col-md-11">
+    <h4>
+      <p>
+          @username sent their gift! <small class="pull-right"><i class="fa fa-calendar"></i>  {{dispDate gift.sent_at}}</small>
+      </p>
+      <p>
+          {{gift.sent_details}}.
+      </p>
+    </h4>
+
+  </div>
+
+
+</template>
