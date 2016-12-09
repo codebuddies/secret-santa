@@ -37,7 +37,7 @@ Meteor.publish("pinboard", function(limit, itemFilter){
   switch (itemFilter) {
     case 'santa':
         query = {'gift.sent': true};
-        projection.fields = {"gift.sent" : 1, 'gift.sent_details':1, "gift.sent_at" : 1, "santa._id":1 };
+        projection.fields = {"gift.sent" : 1, 'gift.sent_details':1, "gift.sent_at" : 1, "secret_santa.name":1 };
       break;
     case 'user':
         query = {'gift.received': true};
