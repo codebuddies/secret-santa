@@ -4,7 +4,7 @@ import { Letters } from '../letters/letters.js';
 
 Meteor.methods({
   totalNumberOfParticipants:function(){
-    return Meteor.users.find({duplicate: { $exists: false}}).count();
+    return Meteor.users.find({duplicate: { $exists: false}}).count() -1 ;
   }
 });
 

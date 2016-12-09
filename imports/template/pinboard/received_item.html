@@ -1,0 +1,17 @@
+<template name="receivedItem">
+  <div class="col-md-1">
+    <img src="{{user.avatar}}" alt="user avatar" height="60px" width="60px" />
+  </div>
+  <div class="col-md-11">
+      <h4>
+        <p>
+            @{{user.firstname}}: My Secret Santa sent me <small class="pull-right"><i class="fa fa-calendar"></i>  {{dispDate gift.received_at}}</small>
+        </p>
+        <p>
+            
+            {{gift.received_details}}.
+        </p>
+      </h4>
+  </div>
+
+</template>

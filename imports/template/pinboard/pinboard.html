@@ -1,0 +1,71 @@
+<template name="pinboard">
+  <div class="row">
+
+    <div class="col-md-12 text-center">
+      <label>
+        <input type="radio" id="itemType" name="itemType"  value="santa" checked/>
+        <img src="/images/Zeusbox-Christmas-Santa.ico" alt="" height="60px" width="60px">
+      </label>
+
+      <label>
+        <input type="radio" id="itemType" name="itemType" value="user"/>
+        <img src="default-avatar.png" alt="" height="60px" width="60px">
+      </label>
+
+    </div>
+
+  </div>
+  <br>
+  <br>
+  <br>
+  <div id="pin-board">
+
+    <div class="container pin-board">
+
+      <div class="row">
+
+        {{#if Template.subscriptionsReady}}
+
+            {{#each items}}
+              {{#if gift.sent}}
+                 <div class="col-md-12 well giftItem">
+                    {{> sentItem}}
+                 </div>
+              {{/if}}
+              {{#if gift.received}}
+                 <div class="col-md-12 well giftItem">
+                    {{> receivedItem}}
+                 </div>
+              {{/if}}
+            {{else}}
+
+              <div class="col-md-12">
+                <h4 class="text-center well">No items to be displayed.</h4>
+              </div>
+
+
+            {{/each}}
+
+
+            {{#if status}}
+                  <div class="col-md-12">
+                    <h5 class="text-center well">You've reached the end of the page.</h5>
+                  </div>
+            {{/if}}
+
+
+        {{else}}
+
+            <div class="col-md-12">
+              {{> loading}}
+            </div>
+
+        {{/if}}
+
+      </div>
+
+    </div><!-- ./container hangout-board -->
+
+  </div><!--pin-board-->
+
+</template>

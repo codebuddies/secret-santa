@@ -14,3 +14,4 @@ import './footer';
 import './gift';
 import './reports';
 import './letter';
+import './pinboard';

@@ -30,6 +30,13 @@ FlowRouter.route('/faq', {
   },
 });
 
+FlowRouter.route('/gift-board', {
+  name: 'pinboard',
+  action() {
+    BlazeLayout.render('layout', { main: 'pinboard' });
+  },
+});
+
 //user routes
 FlowRouter.route('/my-profile', {
   name: 'my profile',
