@@ -33,7 +33,8 @@ gravityPickAndAirMix = function(){
 
         const nextLetterId = availableLetters[i+1]._id;
         const secret_santa = {
-          id: availableLetters[i].user.id
+          id: availableLetters[i].user.id,
+          name: availableLetters[i].user.firstname
         }
         Letters.update({_id:nextLetterId}, {$set:{
             "secret_santa":secret_santa,

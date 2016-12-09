@@ -6,10 +6,11 @@
   <div class="col-md-11">
     <h4>
       <p>
-          @username sent their gift! <small class="pull-right"><i class="fa fa-calendar"></i>  {{dispDate gift.sent_at}}</small>
+          @{{secret_santa.name}} sent their gift! <small class="pull-right"><i class="fa fa-calendar"></i>  {{dispDate gift.sent_at}}</small>
       </p>
       <p>
-          {{gift.sent_details}}.
+          <!-- only if we want to display the gift details. -->
+          <!-- {{gift.sent_details}}. -->
       </p>
     </h4>
 

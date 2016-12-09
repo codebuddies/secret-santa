@@ -61,6 +61,6 @@ Template.introduction.helpers({
     return Template.instance().totalGiftSent.get();
   },
   totalGiftReceived: function(){
-    return Template.instance().totalGiftSent.get();
+    return Template.instance().totalGiftReceived.get();
   }
 });

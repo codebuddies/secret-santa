@@ -97,7 +97,7 @@ img.img-circle {
 	}
 }
 
-label > input{ /* HIDE RADIO */
+label > [name=itemType] { /* HIDE RADIO */
   visibility: hidden; /* Makes input not-clickable */
   position: absolute; /* Remove input from document flow */
 }

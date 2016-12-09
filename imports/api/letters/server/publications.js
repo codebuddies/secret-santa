@@ -15,7 +15,7 @@ Meteor.publish("assignedLetter", function(){
 
 Meteor.publish("myLetter", function(){
 
-  return Letters.find({'user.id': this.userId});
+  return Letters.find({'user.id': this.userId}, {'secret_santa': -1});
 
 });
 
@@ -53,7 +53,7 @@ Meteor.publish("pinboard", function(limit, itemFilter){
   options.reactive=false;
 
   // console.log(query,projection,options);
-  
+
   return Letters.find(query, projection, options);
 
 });

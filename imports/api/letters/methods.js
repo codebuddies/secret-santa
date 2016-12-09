@@ -26,7 +26,7 @@ Meteor.methods({
       shipping_address: data.shippingAddress,
       user:{
          id: user._id,
-         name: user.profile.slack_username,
+         name: user.slack_username,
          firstname: data.firstname,
          lastname: data.lastname,
          time_zone: user.profile.time_zone,
