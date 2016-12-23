@@ -4,3 +4,4 @@ import './santas_on_his_way.html';
 import './thanks_for_reporting.html';
 import './accidentally_reported_letter.html';
 import './verified_letter.html';
+import './we_are_closed.html';

@@ -8,7 +8,7 @@ gravityPickAndAirMix = function(){
   console.log("gravityPickAndAirMix - available letters",availableLetters.length);
 
   const length = availableLetters.length;
-  if (length > 3) {
+  if (length > 1) {
 
     for (var i = 0; i < length; i++) {
       if (i === (length-1) ) {

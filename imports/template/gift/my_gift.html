@@ -4,7 +4,7 @@
       <div class="panel-body">
         <h5>Please log in to see this information!</h5>
       </div>
-    </div>  
+    </div>
   {{else}}
     {{#if Template.subscriptionsReady}}
 
@@ -33,7 +33,14 @@
           {{#if currentUser.duplicate}}
             {{> duplicateUser}}
           {{else}}
-            {{> letterToSanta}}
+
+
+            <!-- new registration is closed after 22nd of Dec -->
+            <!-- {{> letterToSanta}} -->
+            <!-- new registration is closed after 22nd of Dec -->
+            {{> weAreClosed}}
+
+            
           {{/if}}
 
         {{/with}}

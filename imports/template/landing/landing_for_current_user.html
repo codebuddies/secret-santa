@@ -5,7 +5,12 @@
 
     {{#unless currentUser.letter.sent}}
       {{#unless isInRole 'admin'}}
-        {{> letterToSanta}}
+      
+        <!-- new registration is closed after 22nd of Dec -->
+        <!-- {{> letterToSanta}} -->
+        <!-- new registration is closed after 22nd of Dec -->
+        {{> weAreClosed}}
+
       {{/unless}}
     {{else}}
 
